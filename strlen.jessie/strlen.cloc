@@ -1,0 +1,243 @@
+[_C_28]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 15
+begin = 1
+end = 15
+
+[strlen_pointers]
+name = "Lemma strlen_pointers"
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 45
+begin = 4
+end = 281
+
+[strlen_shift1]
+name = "Lemma strlen_shift1"
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 40
+begin = 4
+end = 129
+
+[_C_4]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 29
+begin = 7
+end = 125
+
+[_C_23]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 13
+begin = 14
+end = 25
+
+[_C_19]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 7
+begin = 25
+end = 44
+
+[_C_13]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 7
+begin = 20
+end = 44
+
+[_C_5]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 35
+begin = 7
+end = 126
+
+[_C_12]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 8
+begin = 20
+end = 33
+
+[_C_22]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 13
+begin = 14
+end = 17
+
+[_C_9]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 13
+begin = 6
+end = 12
+
+[_C_30]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 63
+begin = 10
+end = 22
+
+[_C_6]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 41
+begin = 7
+end = 103
+
+[_C_24]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 13
+begin = 27
+end = 31
+
+[_C_20]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 6
+begin = 16
+end = 47
+
+[_C_3]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 25
+begin = 7
+end = 71
+
+[strlen_shift]
+name = "Lemma strlen_shift"
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 28
+begin = 4
+end = 150
+
+[_C_17]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 7
+begin = 25
+end = 44
+
+[_C_7]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 46
+begin = 7
+end = 253
+
+[_C_27]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 15
+begin = 8
+end = 14
+
+[_C_15]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 7
+begin = 20
+end = 27
+
+[_C_26]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 15
+begin = 8
+end = 14
+
+[strlen_before_null]
+name = "Lemma strlen_before_null"
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 19
+begin = 4
+end = 137
+
+[_C_10]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 10
+begin = 18
+end = 38
+
+[_C_8]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 55
+begin = 7
+end = 159
+
+[_C_18]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 7
+begin = 25
+end = 44
+
+[strlen_main]
+name = "Lemma strlen_main"
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 54
+begin = 4
+end = 183
+
+[_C_29]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 65
+begin = 12
+end = 32
+
+[_C_14]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 7
+begin = 20
+end = 27
+
+[valid_str_shift1]
+name = "Lemma valid_str_shift1"
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 11
+begin = 4
+end = 112
+
+[_C_2]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 20
+begin = 7
+end = 106
+
+[_C_16]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 7
+begin = 20
+end = 27
+
+[strlen]
+name = "Function strlen"
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 3
+begin = 7
+end = 28
+
+[_C_1]
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 12
+begin = 7
+end = 83
+
+[_C_25]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 13
+begin = 27
+end = 31
+
+[strlen_shift_ex]
+name = "Lemma strlen_shift_ex"
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 34
+begin = 4
+end = 154
+
+[_C_11]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 9
+begin = 20
+end = 54
+
+[strlen_at_null]
+name = "Lemma strlen_at_null"
+file = "/Users/macbook/Documents/HSE/verker-master/./strlen.h"
+line = 24
+begin = 4
+end = 98
+
+[_C_21]
+file = "/Users/macbook/Documents/HSE/verker-master/strlen.c"
+line = 13
+begin = 14
+end = 17
+
