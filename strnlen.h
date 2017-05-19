@@ -81,9 +81,24 @@
     }
  */
 
+/**
+ * strnlen - Find the length of a length-limited string
+ * @s: The string to be sized
+ * @count: The maximum number of bytes to search
+ */
+
 /*@ requires valid_strn(s, count);
     assigns \nothing;
     ensures \result == strnlen(s, count);
+    behavior null_byte:
+       assumes \exists integer i; 0 <= i <= count && s[i] == '\0';
+       ensures s[\result] == '\0';
+       ensures \forall integer i; 0 <= i < \result ==> s[i] != '\0';
+    behavior count_len:
+       assumes \forall integer i; 0 <= i <= count ==> s[i] != '\0';
+       ensures \result == count;
+    complete behaviors;
+    disjoint behaviors;
  */
 size_t strnlen(const char *s, size_t count);
 
