@@ -74,20 +74,20 @@ typedef __kernel_size_t size_t;
             in_array(s, val) == \true;
 
 logic size_t strspn(char*s, char*accept);
-//= *s == '\0' ? (size_t)0 : (in_array(accept, *s) ? (size_t)1 + strspn(s + 1, accept) : strspn(s + 1, accept));
+//= *s == '\0' ? (size_t)0 : (in_array(accept, *s) ? (size_t)1 + strspn(s + 1, accept) : strspn(s + 1, accept);
 
     lemma strspn_shift:
        \forall char *s,*accept;
           valid_str(s) && valid_str(accept) && *s != '\0' && in_array(accept,*s) ==>
-          strspn(s, accept) == 1 + strspn(s+1, accept);
+          strspn(s, accept) == (size_t)1 + strspn(s+1, accept);
 
     lemma strspn_s_null:
        \forall char* s,*accept;
-        *s == '\0' ==> strspn(s, accept) == 0;
+        *s == '\0' ==> strspn(s, accept) == (size_t)0;
 
         lemma strspn_accept_null:
            \forall char* s,*accept;
-            *accept == '\0' ==> strspn(s, accept) == 0;
+            *accept == '\0' ==> strspn(s, accept) == (size_t)0;
 
         lemma strspn_shift2:
            \forall char *s,*accept;
@@ -97,7 +97,7 @@ logic size_t strspn(char*s, char*accept);
         lemma strspn_shift3:
                  \forall char *s,*accept;
                     valid_str(s) && valid_str(accept) && *s == '\0' && in_array(accept,*s) ==>
-                    strspn(s, accept) == 0;
+                    strspn(s, accept) == (size_t)0;
 
         lemma strspn_range:
                        \forall char *s, *accept, size_t cnt;

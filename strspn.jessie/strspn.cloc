@@ -1,8 +1,8 @@
 [_C_52]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 31
-begin = 16
-end = 18
+line = 29
+begin = 22
+end = 24
 
 [strspn_shift2]
 name = "Lemma strspn_shift2"
@@ -13,45 +13,45 @@ end = 212
 
 [_C_35]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 23
-begin = 16
-end = 18
+line = 14
+begin = 21
+end = 39
 
 [_C_56]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
 line = 29
-begin = 37
-end = 40
+begin = 16
+end = 24
 
 [_C_28]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
 line = 15
-begin = 16
-end = 39
+begin = 28
+end = 46
 
 [_C_72]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 2
-begin = 26
-end = 43
+line = 4
+begin = 17
+end = 37
 
 [_C_59]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 34
+line = 33
 begin = 12
-end = 14
+end = 25
 
 [_C_48]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 29
-begin = 25
-end = 27
+line = 23
+begin = 26
+end = 54
 
 [_C_51]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 31
-begin = 22
-end = 24
+line = 27
+begin = 25
+end = 35
 
 [strlen_pointers]
 name = "Lemma strlen_pointers"
@@ -62,7 +62,7 @@ end = 281
 
 [_C_31]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 15
+line = 14
 begin = 16
 end = 22
 
@@ -82,9 +82,9 @@ end = 129
 
 [_C_41]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 25
-begin = 16
-end = 27
+line = 24
+begin = 23
+end = 68
 
 [_C_4]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -94,37 +94,37 @@ end = 125
 
 [_C_71]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 2
-begin = 10
-end = 22
+line = 4
+begin = 12
+end = 24
 
 [_C_70]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 2
-begin = 10
-end = 43
+line = 4
+begin = 12
+end = 37
 
 [_C_61]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 36
-begin = 8
-end = 15
+line = 32
+begin = 12
+end = 14
 
 [_C_69]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
 line = 4
-begin = 16
-end = 36
+begin = 12
+end = 37
 
 [_C_32]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 15
-begin = 21
-end = 39
+line = 14
+begin = 16
+end = 22
 
 [_C_23]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 21
+line = 19
 begin = 21
 end = 40
 
@@ -136,14 +136,14 @@ end = 334
 
 [_C_42]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 25
+line = 23
 begin = 16
-end = 27
+end = 54
 
 [strspn]
 name = "Function strspn"
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 9
+line = 8
 begin = 7
 end = 46
 
@@ -158,7 +158,7 @@ end = 126
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 85
 begin = 7
-end = 77
+end = 85
 
 [_C_5]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -168,7 +168,7 @@ end = 126
 
 [_C_36]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 23
+line = 21
 begin = 16
 end = 18
 
@@ -176,11 +176,11 @@ end = 18
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 80
 begin = 7
-end = 171
+end = 179
 
 [_C_33]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 15
+line = 14
 begin = 21
 end = 39
 
@@ -193,15 +193,15 @@ end = 232
 
 [_C_22]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 23
+line = 21
 begin = 9
 end = 14
 
 [_C_65]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 23
-begin = 28
-end = 31
+line = 34
+begin = 8
+end = 15
 
 [_C_9]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -211,19 +211,19 @@ end = 131
 
 [_C_57]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 35
-begin = 12
-end = 25
+line = 27
+begin = 37
+end = 40
 
 [_C_54]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 31
+line = 29
 begin = 16
-end = 24
+end = 18
 
 [_C_30]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 15
+line = 14
 begin = 16
 end = 22
 
@@ -236,7 +236,7 @@ end = 239
 
 [_C_63]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 36
+line = 34
 begin = 8
 end = 15
 
@@ -248,9 +248,9 @@ end = 103
 
 [_C_64]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 23
-begin = 28
-end = 31
+line = 34
+begin = 8
+end = 15
 
 [strspn_all_chars]
 name = "Lemma strspn_all_chars"
@@ -261,21 +261,21 @@ end = 367
 
 [_C_49]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 29
+line = 27
 begin = 25
-end = 35
+end = 27
 
 [_C_24]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
 line = 17
 begin = 23
-end = 37
+end = 143
 
 [_C_45]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 25
-begin = 26
-end = 54
+line = 23
+begin = 16
+end = 27
 
 [_C_20]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -283,18 +283,24 @@ line = 121
 begin = 31
 end = 203
 
+[_C_73]
+file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
+line = 5
+begin = 12
+end = 138
+
 [_C_38]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 29
-begin = 13
-end = 23
+line = 21
+begin = 16
+end = 26
 
 [strspn_shift]
 name = "Lemma strspn_shift"
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 79
 begin = 4
-end = 196
+end = 204
 
 [_C_3]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -307,7 +313,7 @@ name = "Lemma strspn_shift3"
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 97
 begin = 8
-end = 209
+end = 217
 
 [strlen_shift]
 name = "Lemma strlen_shift"
@@ -330,33 +336,33 @@ end = 253
 
 [_C_62]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 36
-begin = 8
-end = 15
+line = 32
+begin = 12
+end = 22
 
 [_C_55]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
 line = 29
-begin = 37
-end = 40
+begin = 16
+end = 18
 
 [_C_27]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 16
-begin = 28
-end = 46
+line = 15
+begin = 23
+end = 33
 
 [_C_46]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 25
+line = 23
 begin = 26
 end = 54
 
 [_C_44]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 25
-begin = 26
-end = 54
+line = 23
+begin = 16
+end = 27
 
 [_C_15]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -366,9 +372,9 @@ end = 182
 
 [_C_26]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 16
+line = 15
 begin = 23
-end = 33
+end = 46
 
 [strlen_before_null]
 name = "Lemma strlen_before_null"
@@ -379,9 +385,9 @@ end = 137
 
 [_C_47]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 29
-begin = 25
-end = 27
+line = 23
+begin = 26
+end = 54
 
 [_C_10]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -391,33 +397,33 @@ end = 97
 
 [_C_68]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 4
-begin = 11
-end = 23
+line = 36
+begin = 4
+end = 17
 
 [_C_60]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 34
+line = 32
 begin = 12
-end = 22
+end = 14
 
 [_C_53]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 31
-begin = 16
-end = 18
+line = 29
+begin = 22
+end = 24
 
 [_C_40]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
 line = 25
-begin = 16
-end = 54
+begin = 21
+end = 50
 
 [_C_58]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 34
-begin = 12
-end = 14
+line = 27
+begin = 37
+end = 40
 
 [_C_8]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -427,9 +433,9 @@ end = 159
 
 [_C_66]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 38
-begin = 4
-end = 17
+line = 21
+begin = 28
+end = 31
 
 [_C_18]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -446,15 +452,21 @@ end = 183
 
 [_C_29]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 15
+line = 14
 begin = 16
+end = 39
+
+[_C_75]
+file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
+line = 2
+begin = 10
 end = 22
 
 [_C_14]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 89
 begin = 11
-end = 90
+end = 98
 
 [valid_str_shift1]
 name = "Lemma valid_str_shift1"
@@ -465,19 +477,19 @@ end = 112
 
 [_C_50]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 31
-begin = 22
-end = 24
+line = 27
+begin = 25
+end = 27
 
 [_C_37]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 23
+line = 21
 begin = 16
-end = 26
+end = 18
 
 [_C_43]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 25
+line = 23
 begin = 16
 end = 27
 
@@ -489,28 +501,28 @@ end = 106
 
 [_C_34]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 15
+line = 14
 begin = 21
 end = 39
 
 [_C_67]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 4
-begin = 11
-end = 36
+line = 21
+begin = 28
+end = 31
 
 [_C_16]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 98
 begin = 17
-end = 179
+end = 187
 
 [strspn_accept_null]
 name = "Lemma strspn_accept_null"
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 88
 begin = 8
-end = 125
+end = 133
 
 [in_array_shift1]
 name = "Lemma in_array_shift1"
@@ -525,17 +537,23 @@ line = 13
 begin = 7
 end = 83
 
+[_C_76]
+file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
+line = 2
+begin = 26
+end = 43
+
 [_C_25]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
 line = 16
 begin = 23
-end = 46
+end = 37
 
 [_C_39]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
 line = 27
-begin = 21
-end = 50
+begin = 13
+end = 23
 
 [strlen_shift_ex]
 name = "Lemma strlen_shift_ex"
@@ -543,6 +561,12 @@ file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 35
 begin = 4
 end = 154
+
+[_C_74]
+file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
+line = 2
+begin = 10
+end = 43
 
 [_C_11]
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
@@ -562,7 +586,7 @@ name = "Lemma strspn_s_null"
 file = "/Users/macbook/Documents/HSE/verker-master/./strspn.h"
 line = 84
 begin = 4
-end = 103
+end = 111
 
 [in_array_shift2]
 name = "Lemma in_array_shift2"
@@ -573,7 +597,7 @@ end = 154
 
 [_C_21]
 file = "/Users/macbook/Documents/HSE/verker-master/strspn.c"
-line = 13
+line = 12
 begin = 4
 end = 10
 

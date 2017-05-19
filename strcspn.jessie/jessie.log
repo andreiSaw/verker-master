@@ -48,8 +48,8 @@ Component 3:
  strcspn calls: strcspn, strcspn, in_array, valid_str,
 valid_str, strcspn, strcspn, strlen, strlen, valid_str, valid_str, strlen,
 strcspn, strlen, strlen, strlen, strlen, valid_str, valid_str, strcspn,
-valid_str, valid_str, strlen, strcspn, valid_str, valid_str, strcspn, strlen,
-strcspn, valid_str,
+strlen, valid_str, valid_str, strlen, strcspn, strlen, valid_str, valid_str,
+strcspn, strlen, strcspn, valid_str,
 valid_str
 
 ******************************
