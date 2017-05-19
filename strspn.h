@@ -59,7 +59,7 @@ typedef __kernel_size_t size_t;
        (\forall size_t i; i < n ==> s[i] != '\0') ==>
            strlen(s) == n;
 
-    logic boolean in_array(char *s, char val) = *s == '\0' ? \false : (*s == val ? \true : in_array(s+1, val));
+    logic boolean in_array(char *s, char val) = *s == '\0' ? \false : (*s == val ? \true : in_array(s + 1, val));
 
     lemma in_array_shift1:
       \forall char* s, val; valid_str(s) && *s != '\0' && *s != val && val != '\0' ==>
@@ -74,27 +74,53 @@ typedef __kernel_size_t size_t;
             in_array(s, val) == \true;
 
 logic size_t strspn(char*s, char*accept);
-    // = *s == '\0' ? (size_t)0 : (in_array(accept, *s) ? (size_t)1 + strspn(s + 1, accept) : (size_t)0);
+//= *s == '\0' ? (size_t)0 : (in_array(accept, *s) ? (size_t)1 + strspn(s + 1, accept) : strspn(s + 1, accept));
 
-    lemma strspn_shift1:
+    lemma strspn_shift:
        \forall char *s,*accept;
           valid_str(s) && valid_str(accept) && *s != '\0' && in_array(accept,*s) ==>
           strspn(s, accept) == 1 + strspn(s+1, accept);
 
-    lemma strspn_at_null:
+    lemma strspn_s_null:
        \forall char* s,*accept;
         *s == '\0' ==> strspn(s, accept) == 0;
+
+        lemma strspn_accept_null:
+           \forall char* s,*accept;
+            *accept == '\0' ==> strspn(s, accept) == 0;
 
         lemma strspn_shift2:
            \forall char *s,*accept;
               valid_str(s) && valid_str(accept) && *s != '\0' && !in_array(accept,*s) ==>
-              strspn(s, accept) == 0;
+              strspn(s, accept) == strspn(s + 1, accept);
+
+        lemma strspn_shift3:
+                 \forall char *s,*accept;
+                    valid_str(s) && valid_str(accept) && *s == '\0' && in_array(accept,*s) ==>
+                    strspn(s, accept) == 0;
+
+        lemma strspn_range:
+                       \forall char *s, *accept, size_t cnt;
+                          valid_str(s) && valid_str(accept) && strspn (s,accept) == cnt ==>
+                             0 <= strspn(s,accept) <= cnt;
+
+        lemma strspn_pointers:
+                          			 \forall char *s, *sc, *accept;
+                          					valid_str(s)  && valid_str(sc) &&
+                          					\base_addr(s) == \base_addr(sc) &&
+                          					s <= sc < s + strlen(s)
+                          					==> strspn(sc, accept) <= strspn(s, accept);
+
+        lemma strspn_all_chars:
+                              \forall char *s, *accept, *sc;
+                              valid_str(s) && valid_str(accept) && *s != '\0' && s <= sc < s + strlen(s)
+                              && (\forall char *t; accept <= t < accept + strlen(accept) ==> *sc == *t)
+                              ==> strspn(s, accept) == strlen(s);
+
+         lemma strspn_less:
+                           				\forall char* s, *accept;
+                           					valid_str(s) && valid_str(accept) && *s != '\0'
+                           					==> strspn(s, accept) <= strlen(s);
 }
- */
- /*@ requires valid_str(s) && valid_str(accept);
-    assigns \nothing;
-    ensures \result == strspn(s, accept);
-    ensures \forall char *z; s <= z < s + strlen(s) ==> \exists char *t; accept <= t < accept + strlen(accept) &&
-      *z == *t;
  */
 size_t strspn(const char *s, const char *accept);
