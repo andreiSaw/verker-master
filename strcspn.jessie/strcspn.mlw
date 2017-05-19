@@ -1678,8 +1678,6 @@ theory Axiomatic_Strlen
   
   use import int.Int 
   
-  use bool.Bool 
-  
   use why3.Bool.Bool 
   
   predicate valid_str (s : (pointer voidP)) (voidP_s_2_alloc_table_at_L :
@@ -1700,185 +1698,137 @@ theory Axiomatic_Strlen
        else ((=) true true))))
   
   lemma Valid_str_shift1
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 7 83#
+  #"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 12 7 83#
   "expl:Lemma valid_str_shift1" :
-  (forall voidP_s_0_9_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_0_9_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 7 83#
+  (forall voidP_s_0_7_alloc_table_at_L : (alloc_table voidP).
+   (forall charP_charM_s_0_7_at_L : (memory voidP Int8.t).
+    (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 12 7 83#
     (forall s_0_0 : (pointer voidP).
-     ((((<>) (Int8.to_int (select charP_charM_s_0_9_at_L s_0_0)) (0)) /\
-      (valid_str s_0_0 voidP_s_0_9_alloc_table_at_L charP_charM_s_0_9_at_L))
+     ((((<>) (Int8.to_int (select charP_charM_s_0_7_at_L s_0_0)) (0)) /\
+      (valid_str s_0_0 voidP_s_0_7_alloc_table_at_L charP_charM_s_0_7_at_L))
       ->
-      (valid_str (shift s_0_0 (1)) voidP_s_0_9_alloc_table_at_L
-      charP_charM_s_0_9_at_L))))))
+      (valid_str (shift s_0_0 (1)) voidP_s_0_7_alloc_table_at_L
+      charP_charM_s_0_7_at_L))))))
   
   function strlen (pointer voidP) (memory voidP Int8.t) :
   Uint64.t
   
   lemma Strlen_before_null
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 22 7 106#
+  #"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 20 7 106#
   "expl:Lemma strlen_before_null" :
-  (forall voidP_s_2_10_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_2_10_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 22 7 106#
+  (forall voidP_s_2_8_alloc_table_at_L : (alloc_table voidP).
+   (forall charP_charM_s_2_8_at_L : (memory voidP Int8.t).
+    (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 20 7 106#
     (forall s_2 : (pointer voidP).
      (forall i_1 : int.
-      (((valid_str s_2 voidP_s_2_10_alloc_table_at_L charP_charM_s_2_10_at_L)
+      (((valid_str s_2 voidP_s_2_8_alloc_table_at_L charP_charM_s_2_8_at_L)
        /\
        (((<=) (0) i_1) /\
-       ((<) i_1 (Uint64.to_int (strlen s_2 charP_charM_s_2_10_at_L))))) ->
-       ((<>) (Int8.to_int (select charP_charM_s_2_10_at_L (shift s_2 i_1)))
+       ((<) i_1 (Uint64.to_int (strlen s_2 charP_charM_s_2_8_at_L))))) ->
+       ((<>) (Int8.to_int (select charP_charM_s_2_8_at_L (shift s_2 i_1)))
        (0))))))))
   
   lemma Strlen_at_null
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 26 7 71#
+  #"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 25 7 71#
   "expl:Lemma strlen_at_null" :
-  (forall voidP_s_3_11_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_3_11_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 26 7 71#
+  (forall voidP_s_3_9_alloc_table_at_L : (alloc_table voidP).
+   (forall charP_charM_s_3_9_at_L : (memory voidP Int8.t).
+    (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 25 7 71#
     (forall s_3 : (pointer voidP).
-     ((valid_str s_3 voidP_s_3_11_alloc_table_at_L charP_charM_s_3_11_at_L)
-      ->
+     ((valid_str s_3 voidP_s_3_9_alloc_table_at_L charP_charM_s_3_9_at_L) ->
       ((=)
       (Int8.to_int
-      (select charP_charM_s_3_11_at_L
-      (shift s_3 (Uint64.to_int (strlen s_3 charP_charM_s_3_11_at_L))))) (0)))))))
+      (select charP_charM_s_3_9_at_L
+      (shift s_3 (Uint64.to_int (strlen s_3 charP_charM_s_3_9_at_L))))) (0)))))))
   
   lemma Strlen_shift
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 29 7 125#
+  #"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 29 7 125#
   "expl:Lemma strlen_shift" :
-  (forall voidP_s_4_12_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_4_12_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 29 7 125#
+  (forall voidP_s_4_10_alloc_table_at_L : (alloc_table voidP).
+   (forall charP_charM_s_4_10_at_L : (memory voidP Int8.t).
+    (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 29 7 125#
     (forall s_4 : (pointer voidP).
      (forall i_2 : Uint64.t.
-      (((valid_str s_4 voidP_s_4_12_alloc_table_at_L charP_charM_s_4_12_at_L)
-       /\ (Uint64.(<=) i_2 (strlen s_4 charP_charM_s_4_12_at_L))) ->
+      (((valid_str s_4 voidP_s_4_10_alloc_table_at_L charP_charM_s_4_10_at_L)
+       /\ (Uint64.(<=) i_2 (strlen s_4 charP_charM_s_4_10_at_L))) ->
        ((=)
        (Uint64.to_int
-       (strlen (shift s_4 (Uint64.to_int i_2)) charP_charM_s_4_12_at_L))
-       (Int.(-) (Uint64.to_int (strlen s_4 charP_charM_s_4_12_at_L))
+       (strlen (shift s_4 (Uint64.to_int i_2)) charP_charM_s_4_10_at_L))
+       (Int.(-) (Uint64.to_int (strlen s_4 charP_charM_s_4_10_at_L))
        (Uint64.to_int i_2)))))))))
   
   lemma Strlen_shift_ex
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 34 7 126#
+  #"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 35 7 126#
   "expl:Lemma strlen_shift_ex" :
-  (forall voidP_s_5_13_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_5_13_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 34 7 126#
+  (forall voidP_s_5_11_alloc_table_at_L : (alloc_table voidP).
+   (forall charP_charM_s_5_11_at_L : (memory voidP Int8.t).
+    (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 35 7 126#
     (forall s_5 : (pointer voidP).
      (forall i_3 : Uint64.t.
-      (((valid_str s_5 voidP_s_5_13_alloc_table_at_L charP_charM_s_5_13_at_L)
+      (((valid_str s_5 voidP_s_5_11_alloc_table_at_L charP_charM_s_5_11_at_L)
        /\
        (((<) (0) (Uint64.to_int i_3)) /\
-       (Uint64.(<=) i_3 (strlen s_5 charP_charM_s_5_13_at_L)))) ->
+       (Uint64.(<=) i_3 (strlen s_5 charP_charM_s_5_11_at_L)))) ->
        (Uint64.(<)
-       (strlen (shift s_5 (Uint64.to_int i_3)) charP_charM_s_5_13_at_L)
-       (strlen s_5 charP_charM_s_5_13_at_L))))))))
+       (strlen (shift s_5 (Uint64.to_int i_3)) charP_charM_s_5_11_at_L)
+       (strlen s_5 charP_charM_s_5_11_at_L))))))))
   
   lemma Strlen_shift1
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 39 7 103#
+  #"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 41 7 103#
   "expl:Lemma strlen_shift1" :
-  (forall voidP_s_6_14_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_6_14_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 39 7 103#
+  (forall voidP_s_6_12_alloc_table_at_L : (alloc_table voidP).
+   (forall charP_charM_s_6_12_at_L : (memory voidP Int8.t).
+    (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 41 7 103#
     (forall s_6 : (pointer voidP).
-     (((valid_str s_6 voidP_s_6_14_alloc_table_at_L charP_charM_s_6_14_at_L)
-      /\ ((<>) (Int8.to_int (select charP_charM_s_6_14_at_L s_6)) (0))) ->
-      ((=) (Uint64.to_int (strlen s_6 charP_charM_s_6_14_at_L))
+     (((valid_str s_6 voidP_s_6_12_alloc_table_at_L charP_charM_s_6_12_at_L)
+      /\ ((<>) (Int8.to_int (select charP_charM_s_6_12_at_L s_6)) (0))) ->
+      ((=) (Uint64.to_int (strlen s_6 charP_charM_s_6_12_at_L))
       (Int.(+) (1)
-      (Uint64.to_int (strlen (shift s_6 (1)) charP_charM_s_6_14_at_L)))))))))
+      (Uint64.to_int (strlen (shift s_6 (1)) charP_charM_s_6_12_at_L)))))))))
   
   lemma Strlen_pointers
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 43 7 253#
+  #"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 46 7 253#
   "expl:Lemma strlen_pointers" :
-  (forall voidP_s_7_15_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_7_15_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 43 7 253#
+  (forall voidP_s_7_13_alloc_table_at_L : (alloc_table voidP).
+   (forall charP_charM_s_7_13_at_L : (memory voidP Int8.t).
+    (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 46 7 253#
     (forall s_7 : (pointer voidP).
      (forall sc : (pointer voidP).
-      (((valid_str s_7 voidP_s_7_15_alloc_table_at_L charP_charM_s_7_15_at_L)
+      (((valid_str s_7 voidP_s_7_13_alloc_table_at_L charP_charM_s_7_13_at_L)
        /\
-       ((valid_str sc voidP_s_7_15_alloc_table_at_L charP_charM_s_7_15_at_L)
+       ((valid_str sc voidP_s_7_13_alloc_table_at_L charP_charM_s_7_13_at_L)
        /\
        ((same_block s_7 sc) /\
        ((same_block s_7 sc) /\
        (((<=) (sub_pointer s_7 sc) (0)) /\
        (forall i_4 : int.
         ((((<=) (0) i_4) /\ ((<=) i_4 (sub_pointer sc s_7))) ->
-         ((<>) (Int8.to_int (select charP_charM_s_7_15_at_L (shift s_7 i_4)))
+         ((<>) (Int8.to_int (select charP_charM_s_7_13_at_L (shift s_7 i_4)))
          (0))))))))) ->
-       (Uint64.(<=) (strlen sc charP_charM_s_7_15_at_L)
-       (strlen s_7 charP_charM_s_7_15_at_L))))))))
+       (Uint64.(<=) (strlen sc charP_charM_s_7_13_at_L)
+       (strlen s_7 charP_charM_s_7_13_at_L))))))))
   
   lemma Strlen_main
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 51 7 159#
+  #"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 55 7 159#
   "expl:Lemma strlen_main" :
-  (forall voidP_s_8_17_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_8_17_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 51 7 159#
+  (forall voidP_s_8_15_alloc_table_at_L : (alloc_table voidP).
+   (forall charP_charM_s_8_15_at_L : (memory voidP Int8.t).
+    (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 55 7 159#
     (forall s_8 : (pointer voidP).
      (forall n_2 : Uint64.t.
-      (((valid_str s_8 voidP_s_8_17_alloc_table_at_L charP_charM_s_8_17_at_L)
+      (((valid_str s_8 voidP_s_8_15_alloc_table_at_L charP_charM_s_8_15_at_L)
        /\
        (((=)
         (Int8.to_int
-        (select charP_charM_s_8_17_at_L (shift s_8 (Uint64.to_int n_2))))
+        (select charP_charM_s_8_15_at_L (shift s_8 (Uint64.to_int n_2))))
         (0))
        /\
        (forall i_5 : Uint64.t.
         ((Uint64.(<) i_5 n_2) ->
          ((<>)
          (Int8.to_int
-         (select charP_charM_s_8_17_at_L (shift s_8 (Uint64.to_int i_5))))
-         (0)))))) -> (Uint64.(=) (strlen s_8 charP_charM_s_8_17_at_L) n_2)))))))
-  
-  predicate in_array (pointer voidP) Int8.t (memory voidP
-  Int8.t)
-  
-  lemma In_array_shift1
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 61 5 129#
-  "expl:Lemma in_array_shift1" :
-  (forall voidP_s_10_18_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_10_18_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 61 5 129#
-    (forall s_10 : (pointer voidP).
-     (forall val_0 : Int8.t.
-      (((valid_str s_10 voidP_s_10_18_alloc_table_at_L
-        charP_charM_s_10_18_at_L)
-       /\
-       (((<>) (Int8.to_int (select charP_charM_s_10_18_at_L s_10)) (0)) /\
-       ((Int8.(<>) (select charP_charM_s_10_18_at_L s_10) val_0) /\
-       ((<>) (Int8.to_int val_0) (0))))) ->
-       ((=) (in_array s_10 val_0 charP_charM_s_10_18_at_L)
-       (in_array (shift s_10 (1)) val_0 charP_charM_s_10_18_at_L))))))))
-  
-  lemma In_array_at_null
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 65 8 95#
-  "expl:Lemma in_array_at_null" :
-  (forall charP_charM_s_11_19_at_L : (memory voidP Int8.t).
-   (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 65 8 95#
-   (forall s_11 : (pointer voidP).
-    (forall val_1 : Int8.t.
-     ((((=) (Int8.to_int (select charP_charM_s_11_19_at_L s_11)) (0)) /\
-      ((<>) (Int8.to_int val_1) (0))) ->
-      ((=) (in_array s_11 val_1 charP_charM_s_11_19_at_L) false))))))
-  
-  lemma In_array_shift2
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 69 7 124#
-  "expl:Lemma in_array_shift2" :
-  (forall voidP_s_12_20_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_12_20_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 69 7 124#
-    (forall s_12 : (pointer voidP).
-     (forall val_2 : Int8.t.
-      (((valid_str s_12 voidP_s_12_20_alloc_table_at_L
-        charP_charM_s_12_20_at_L)
-       /\
-       (((<>) (Int8.to_int (select charP_charM_s_12_20_at_L s_12)) (0)) /\
-       ((Int8.(=) (select charP_charM_s_12_20_at_L s_12) val_2) /\
-       ((<>) (Int8.to_int val_2) (0))))) ->
-       ((=) (in_array s_12 val_2 charP_charM_s_12_20_at_L) true)))))))
+         (select charP_charM_s_8_15_at_L (shift s_8 (Uint64.to_int i_5))))
+         (0)))))) -> (Uint64.(=) (strlen s_8 charP_charM_s_8_15_at_L) n_2)))))))
   
   axiom Strlen_definition :
   (forall s_1 : (pointer voidP).
@@ -1896,207 +1846,6 @@ theory Axiomatic_Strlen
      (Uint64_of_Int32.cast (#"strcspn.jc" 46 9 21# "expl:Integer cast"
      (Int32.of_int (1))))))
      (Uint64.to_int (strlen (shift s_1 (1)) charP_charM_s_1_3_at_L)))))))))
-  
-  axiom In_array_definition :
-  (forall s_9 : (pointer voidP).
-   (forall val_why3 : Int8.t.
-    (forall charP_charM_s_9_4_at_L : (memory voidP Int8.t)
-     [(in_array s_9 val_why3 charP_charM_s_9_4_at_L)] .
-     ((=) (in_array s_9 val_why3 charP_charM_s_9_4_at_L)
-     (if ((=) (Int8.to_int (select charP_charM_s_9_4_at_L s_9)) (0)) then
-      false else
-      (if (Int8.(=) (select charP_charM_s_9_4_at_L s_9) val_why3) then true
-       else (in_array (shift s_9 (1)) val_why3 charP_charM_s_9_4_at_L)))))))
-  
-end
-
-theory Axiomatic_Strcspn
-
-  use enum.Uint64 
-  
-  use import core.Jessie_voidp 
-  
-  use import core.Jessie_pointer 
-  
-  use import core.Jessie_memory 
-  
-  use import core.Jessie_alloc_table 
-  
-  use enum.Int8 
-  
-  use import int.Int 
-  
-  use import Axiomatic_Strlen 
-  
-  use why3.Bool.Bool 
-  
-  function strcspn (pointer voidP) (pointer voidP) :
-  Uint64.t
-  
-  lemma Strcspn_shift
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 81 8 179#
-  "expl:Lemma strcspn_shift" :
-  (forall voidP_reject_6_alloc_table_at_L : (alloc_table voidP).
-   (forall voidP_s_13_5_alloc_table_at_L : (alloc_table voidP).
-    (forall charP_charM_reject_6_at_L : (memory voidP Int8.t).
-     (forall charP_charM_s_13_5_at_L : (memory voidP Int8.t).
-      (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 81 8 179#
-      (forall s_14 : (pointer voidP).
-       (forall reject_0_0 : (pointer voidP).
-        (((valid_str s_14 voidP_s_13_5_alloc_table_at_L
-          charP_charM_s_13_5_at_L)
-         /\
-         ((valid_str reject_0_0 voidP_reject_6_alloc_table_at_L
-          charP_charM_reject_6_at_L)
-         /\
-         (((<>) (Int8.to_int (select charP_charM_s_13_5_at_L s_14)) (0)) /\
-         (not
-         ((=)
-         (in_array reject_0_0 (select charP_charM_s_13_5_at_L s_14)
-         charP_charM_reject_6_at_L) true))))) ->
-         ((=) (Uint64.to_int (strcspn s_14 reject_0_0))
-         (Int.(+) (1) (Uint64.to_int (strcspn (shift s_14 (1)) reject_0_0))))))))))))
-  
-  lemma Strcspn_pointers
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 86 5 197#
-  "expl:Lemma strcspn_pointers" :
-  (forall voidP_s_13_5_alloc_table_at_L : (alloc_table voidP).
-   (forall charP_charM_s_13_5_at_L : (memory voidP Int8.t).
-    (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 86 5 197#
-    (forall s_15 : (pointer voidP).
-     (forall sc_0 : (pointer voidP).
-      (forall reject_1 : (pointer voidP).
-       (((valid_str s_15 voidP_s_13_5_alloc_table_at_L
-         charP_charM_s_13_5_at_L)
-        /\
-        ((valid_str sc_0 voidP_s_13_5_alloc_table_at_L
-         charP_charM_s_13_5_at_L)
-        /\
-        ((same_block s_15 sc_0) /\
-        ((same_block s_15 sc_0) /\
-        (((<=) (sub_pointer s_15 sc_0) (0)) /\
-        ((same_block sc_0
-         (shift s_15 (Uint64.to_int (strlen s_15 charP_charM_s_13_5_at_L))))
-        /\
-        ((<)
-        (sub_pointer sc_0
-        (shift s_15 (Uint64.to_int (strlen s_15 charP_charM_s_13_5_at_L))))
-        (0)))))))) ->
-        (Uint64.(<=) (strcspn sc_0 reject_1) (strcspn s_15 reject_1)))))))))
-  
-  lemma Strcspn_all_chars
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 93 8 246#
-  "expl:Lemma strcspn_all_chars" :
-  (forall voidP_reject_6_alloc_table_at_L : (alloc_table voidP).
-   (forall voidP_s_13_5_alloc_table_at_L : (alloc_table voidP).
-    (forall charP_charM_reject_6_at_L : (memory voidP Int8.t).
-     (forall charP_charM_s_13_5_at_L : (memory voidP Int8.t).
-      (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 93 8 246#
-      (forall s_16 : (pointer voidP).
-       (forall reject_2 : (pointer voidP).
-        (forall sc_1 : (pointer voidP).
-         (((valid_str s_16 voidP_s_13_5_alloc_table_at_L
-           charP_charM_s_13_5_at_L)
-          /\
-          ((valid_str reject_2 voidP_reject_6_alloc_table_at_L
-           charP_charM_reject_6_at_L)
-          /\
-          (((<>) (Int8.to_int (select charP_charM_s_13_5_at_L s_16)) (0)) /\
-          ((same_block s_16 sc_1) /\
-          (((<=) (sub_pointer s_16 sc_1) (0)) /\
-          ((same_block sc_1
-           (shift s_16 (Uint64.to_int (strlen s_16 charP_charM_s_13_5_at_L))))
-          /\
-          (((<)
-           (sub_pointer sc_1
-           (shift s_16 (Uint64.to_int (strlen s_16 charP_charM_s_13_5_at_L))))
-           (0))
-          /\
-          (forall r : (pointer voidP).
-           (((same_block reject_2 r) /\
-            (((<=) (sub_pointer reject_2 r) (0)) /\
-            ((same_block r
-             (shift reject_2
-             (Uint64.to_int (strlen reject_2 charP_charM_reject_6_at_L))))
-            /\
-            ((<)
-            (sub_pointer r
-            (shift reject_2
-            (Uint64.to_int (strlen reject_2 charP_charM_reject_6_at_L))))
-            (0))))) ->
-            (Int8.(<>) (select charP_charM_reject_6_at_L r)
-            (select charP_charM_s_13_5_at_L sc_1))))))))))) ->
-          (Uint64.(=) (strcspn s_16 reject_2)
-          (strlen s_16 charP_charM_s_13_5_at_L)))))))))))
-  
-  lemma Strcspn_zero_s
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 99 8 125#
-  "expl:Lemma strcspn_zero_s" :
-  (forall voidP_reject_6_alloc_table_at_L : (alloc_table voidP).
-   (forall voidP_s_13_5_alloc_table_at_L : (alloc_table voidP).
-    (forall charP_charM_reject_6_at_L : (memory voidP Int8.t).
-     (forall charP_charM_s_13_5_at_L : (memory voidP Int8.t).
-      (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 99 8 125#
-      (forall s_17 : (pointer voidP).
-       (forall reject_3 : (pointer voidP).
-        (((valid_str s_17 voidP_s_13_5_alloc_table_at_L
-          charP_charM_s_13_5_at_L)
-         /\
-         ((valid_str reject_3 voidP_reject_6_alloc_table_at_L
-          charP_charM_reject_6_at_L)
-         /\ ((=) (Uint64.to_int (strlen s_17 charP_charM_s_13_5_at_L)) (0))))
-         -> ((=) (Uint64.to_int (strcspn s_17 reject_3)) (0))))))))))
-  
-  lemma Strcspn_zero_reject
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 104 4 132#
-  "expl:Lemma strcspn_zero_reject" :
-  (forall voidP_reject_6_alloc_table_at_L : (alloc_table voidP).
-   (forall voidP_s_13_5_alloc_table_at_L : (alloc_table voidP).
-    (forall charP_charM_reject_6_at_L : (memory voidP Int8.t).
-     (forall charP_charM_s_13_5_at_L : (memory voidP Int8.t).
-      (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 104 4 132#
-      (forall s_18 : (pointer voidP).
-       (forall reject_4 : (pointer voidP).
-        (((valid_str s_18 voidP_s_13_5_alloc_table_at_L
-          charP_charM_s_13_5_at_L)
-         /\
-         ((valid_str reject_4 voidP_reject_6_alloc_table_at_L
-          charP_charM_reject_6_at_L)
-         /\
-         ((=) (Uint64.to_int (strlen reject_4 charP_charM_reject_6_at_L))
-         (0)))) ->
-         (Uint64.(=) (strcspn s_18 reject_4)
-         (strlen s_18 charP_charM_s_13_5_at_L))))))))))
-  
-  lemma Strspn_at_null
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 109 7 78#
-  "expl:Lemma strspn_at_null" :
-  (forall charP_charM_s_13_5_at_L : (memory voidP Int8.t).
-   (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 109 7 78#
-   (forall s_19 : (pointer voidP).
-    (forall reject_5 : (pointer voidP).
-     (((=) (Int8.to_int (select charP_charM_s_13_5_at_L s_19)) (0)) ->
-      ((=) (Uint64.to_int (strcspn s_19 reject_5)) (0)))))))
-  
-  lemma Strcspn_less
-  #"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 113 5 126#
-  "expl:Lemma strcspn_less" :
-  (forall voidP_reject_6_alloc_table_at_L : (alloc_table voidP).
-   (forall voidP_s_13_5_alloc_table_at_L : (alloc_table voidP).
-    (forall charP_charM_reject_6_at_L : (memory voidP Int8.t).
-     (forall charP_charM_s_13_5_at_L : (memory voidP Int8.t).
-      (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 113 5 126#
-      (forall s_20 : (pointer voidP).
-       (forall reject_6 : (pointer voidP).
-        (((valid_str s_20 voidP_s_13_5_alloc_table_at_L
-          charP_charM_s_13_5_at_L)
-         /\
-         ((valid_str reject_6 voidP_reject_6_alloc_table_at_L
-          charP_charM_reject_6_at_L)
-         /\ ((<>) (Int8.to_int (select charP_charM_s_13_5_at_L s_20)) (0))))
-         ->
-         (Uint64.(<=) (strcspn s_20 reject_6)
-         (strlen s_20 charP_charM_s_13_5_at_L))))))))))
   
 end
 
@@ -2130,7 +1879,7 @@ module Exceptions
   
 end
 
-module Function_strcspn_0_safety
+module Function_strcspn_safety
 
   use enum.Uint64 
   
@@ -2174,311 +1923,294 @@ module Function_strcspn_0_safety
   
   use why3.Bool.Bool 
   
-  let strcspn_0
-  #"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 7 49#
+  let strcspn #"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 3 7 49#
   "expl:Function strcspn, safety" =
   fun
-   (s_0 : (pointer voidP)) (reject_0 : (pointer voidP))
-   (voidP_s_7_alloc_table : (alloc_table voidP)) (voidP_reject_8_alloc_table
-   : (alloc_table voidP)) (voidP_reject_8_tag_table : (tag_table voidP))
-   (voidP_s_7_tag_table : (tag_table voidP)) (charP_charM_s_7 : (memory voidP
-   Int8.t)) (charP_charM_reject_8 : (memory voidP Int8.t)) 
+   (s_0 : (pointer voidP)) (reject : (pointer voidP))
+   (voidP_s_0_5_alloc_table : (alloc_table voidP))
+   (voidP_reject_6_alloc_table : (alloc_table voidP))
+   (voidP_reject_6_tag_table : (tag_table voidP)) (voidP_s_0_5_tag_table :
+   (tag_table voidP)) (charP_charM_s_0_5 : (memory voidP Int8.t))
+   (charP_charM_reject_6 : (memory voidP Int8.t)) 
    requires {
-   (((allocated voidP_reject_8_alloc_table reject_0) ->
-     (((=) (typeof voidP_reject_8_tag_table reject_0) charP_tag) /\
+   (((allocated voidP_reject_6_alloc_table reject) ->
+     (((=) (typeof voidP_reject_6_tag_table reject) charP_tag) /\
      (forall i : int.
-      ((((<=) (offset_min voidP_reject_8_alloc_table reject_0) i) /\
-       ((<) i (offset_max voidP_reject_8_alloc_table reject_0))) ->
-       ((=) (typeof voidP_reject_8_tag_table (shift reject_0 i)) charP_tag)))))
+      ((((<=) (offset_min voidP_reject_6_alloc_table reject) i) /\
+       ((<) i (offset_max voidP_reject_6_alloc_table reject))) ->
+       ((=) (typeof voidP_reject_6_tag_table (shift reject i)) charP_tag)))))
    /\
-   (((allocated voidP_s_7_alloc_table s_0) ->
-     (((=) (typeof voidP_s_7_tag_table s_0) charP_tag) /\
+   (((allocated voidP_s_0_5_alloc_table s_0) ->
+     (((=) (typeof voidP_s_0_5_tag_table s_0) charP_tag) /\
      (forall i : int.
-      ((((<=) (offset_min voidP_s_7_alloc_table s_0) i) /\
-       ((<) i (offset_max voidP_s_7_alloc_table s_0))) ->
-       ((=) (typeof voidP_s_7_tag_table (shift s_0 i)) charP_tag)))))
+      ((((<=) (offset_min voidP_s_0_5_alloc_table s_0) i) /\
+       ((<) i (offset_max voidP_s_0_5_alloc_table s_0))) ->
+       ((=) (typeof voidP_s_0_5_tag_table (shift s_0 i)) charP_tag)))))
    /\
-   (#"strcspn.jc" 211 12 90#
-   ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 3 10 22#
-    (valid_str s_0 voidP_s_7_alloc_table charP_charM_s_7))
+   (#"strcspn.jc" 120 12 92#
+   ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 13 10 22#
+    (valid_str s_0 voidP_s_0_5_alloc_table charP_charM_s_0_5))
    /\
-   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 4 11 28#
-   (valid_str reject_0 voidP_reject_8_alloc_table charP_charM_reject_8))))))
-   } ensures { ("expl:Postcondition" true) }  ->
+   (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 14 13 30#
+   (valid_str reject voidP_reject_6_alloc_table charP_charM_reject_6)))))) }
+   ensures { ("expl:Postcondition" true) }  ->
    'Init:
    (let return = ref (Safe_uint64.any_  () ) in
    try
     begin
-    (let p = ref (any_pointer  () : (pointer voidP)) in
-    (let r_0 = ref (any_pointer  () : (pointer voidP)) in
-    (let count = ref (Safe_uint64.any_  () ) in
-    (let __retres = ref (Safe_uint64.any_  () ) in
-    try
-     begin
+    (); ();
+     (let p_4 = ref (any_pointer  () : (pointer voidP)) in
+     (let r = ref (any_pointer  () : (pointer voidP)) in
+     (let count = ref (Safe_uint64.any_  () ) in
+     (let __retres = ref (Safe_uint64.any_  () ) in
      try
       begin
-      (count :=
-       (let _jessie_23 =
-       (#"strcspn.jc" 244 24 37# "expl:Integer cast"
-       (Safe_uint64.of_int (0))) in
+      try
        begin
-       (assert {
-       (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 14 1 7#
-       "expl:Pointer index bounds" true) }); _jessie_23 end));
-       begin
-       (p :=
-        (let _jessie_17 = s_0 in
+       (count :=
+        (let _jessie_41 =
+        (#"strcspn.jc" 300 24 37# "expl:Integer cast"
+        (Safe_uint64.of_int (0))) in
         begin
         (assert {
-        (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 26 6 11#
-        "expl:Pointer index bounds" true) }); _jessie_17 end));
-        'Loop_3:
-        loop
-        invariant { (#"strcspn.jc" 247 6 5357# true) }
-          variant {
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 24 19 38#
-            (Int.(-) (Uint64.to_int (strlen s_0 charP_charM_s_7))
-            (sub_pointer !p s_0))) }
+        (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 7 1 7#
+        "expl:Pointer index bounds" true) }); _jessie_41 end));
+        begin
+        (p_4 :=
+         (let _jessie_35 = s_0 in
          begin
-         any unit
-         requires { true } reads { reject_0, s_0 }
-         ensures {
-           ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 21 18 103#
-            (forall z : (pointer voidP).
-             (forall t_0 : (pointer voidP).
-              (((same_block s_0 z) /\
-               (((<=) (sub_pointer s_0 z) (0)) /\
-               ((same_block z !p) /\
-               (((<) (sub_pointer z !p) (0)) /\
-               ((same_block reject_0 t_0) /\
-               (((<=) (sub_pointer reject_0 t_0) (0)) /\
-               ((same_block t_0
-                (shift reject_0
-                (Uint64.to_int (strlen reject_0 charP_charM_reject_8))))
-               /\
-               ((<)
-               (sub_pointer t_0
-               (shift reject_0
-               (Uint64.to_int (strlen reject_0 charP_charM_reject_8)))) (0)))))))))
-               ->
-               (Int8.(<>) (select charP_charM_s_7 z)
-               (select charP_charM_reject_8 t_0))))))
-           /\
-           ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 19 18 32#
-            ((=) (Uint64.to_int !count) (sub_pointer !p s_0)))
-           /\
-           ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 21 44#
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 21 44#
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 21 31#
-             ((<=) (0) (Uint64.to_int !count)))
+         (assert {
+         (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 6 11#
+         "expl:Pointer index bounds" true) }); _jessie_35 end));
+         'Loop_7:
+         loop
+         invariant { (#"strcspn.jc" 303 6 4658# true) }
+           variant {
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 15 18 37#
+             (Int.(-) (Uint64.to_int (strlen s_0 charP_charM_s_0_5))
+             (sub_pointer !p_4 s_0))) }
+          begin
+          any unit
+          requires { true } reads { reject, s_0 }
+          ensures {
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 12 20 145#
+             (forall c_0 : (pointer voidP).
+              (forall t : (pointer voidP).
+               (((same_block s_0 c_0) /\
+                (((<=) (sub_pointer s_0 c_0) (0)) /\
+                ((same_block c_0 !p_4) /\
+                (((<) (sub_pointer c_0 !p_4) (0)) /\
+                ((same_block reject t) /\
+                (((<=) (sub_pointer reject t) (0)) /\
+                ((same_block t
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                /\
+                ((<)
+                (sub_pointer t
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))
+                ->
+                (Int8.(<>) (select charP_charM_s_0_5 c_0)
+                (select charP_charM_reject_6 t))))))
             /\
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 44#
-            (Uint64.(<=) !count (strlen s_0 charP_charM_s_7))))))
-           /\
-           (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 41#
-           (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 41#
-           ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 24#
-            (same_block s_0 !p))
-           /\
-           (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 41#
-           ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 24#
-            ((<=) (sub_pointer s_0 !p) (0)))
-           /\
-           (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 41#
-           ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 23 41#
-            (same_block !p
-            (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_7)))))
-           /\
-           (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 23 41#
-           ((<=)
-           (sub_pointer !p
-           (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_7)))) (0)))))))))))))
-           } ;
-          try
-           begin
-           begin
-           (if
-           (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 26 13 23#
-           (Safe_int32.(<>) 
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 26 13 15#
-            "expl:Integer cast"
-            (Safe_int32_of_Safe_int8.cast 
-             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 26 13 15#
-             "expl:Pointer dereference"
-             (acc  voidP_s_7_alloc_table charP_charM_s_7 !p )) ))
-            (#"strcspn.jc" 284 27 39# "expl:Integer cast"
-            (Safe_int32.of_int (0))) )) then ()
-           else (raise (Goto_while_0_break_exc ())));
-            try
-             begin
-             (r_0 :=
-              (let _jessie_18 = reject_0 in
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 11 20 34#
+             ((=) (Uint64.to_int !count) (sub_pointer !p_4 s_0)))
+            /\
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 43#
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 43#
+             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 30#
+              ((<=) (0) (Uint64.to_int !count)))
+             /\
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 25 43#
+             (Uint64.(<=) !count (strlen s_0 charP_charM_s_0_5))))))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 22#
+             (same_block s_0 !p_4))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 22#
+             ((<=) (sub_pointer s_0 !p_4) (0)))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 21 39#
+             (same_block !p_4
+             (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 21 39#
+            ((<=)
+            (sub_pointer !p_4
+            (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0)))))))))))))
+            } ;
+           try
+            begin
+            begin
+            (if
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 23#
+            (Safe_int32.(<>) 
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 15#
+             "expl:Integer cast"
+             (Safe_int32_of_Safe_int8.cast 
+              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 15#
+              "expl:Pointer dereference"
+              (acc  voidP_s_0_5_alloc_table charP_charM_s_0_5 !p_4 )) ))
+             (#"strcspn.jc" 341 27 39# "expl:Integer cast"
+             (Safe_int32.of_int (0))) )) then ()
+            else (raise (Goto_while_0_break_exc ())));
+             try
               begin
-              (assert {
-              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 34 7 17#
-              "expl:Pointer index bounds" true) }); _jessie_18 end));
-              'Loop_4:
-              loop
-              invariant { (#"strcspn.jc" 289 15 2576# true) }
-                variant {
-                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 32 21 50#
-                  (Int.(-)
-                  (Uint64.to_int (strlen reject_0 charP_charM_reject_8))
-                  (sub_pointer !r_0 reject_0))) }
+              (r :=
+               (let _jessie_36 = reject in
                begin
-               any unit
-               requires { true } reads { reject_0 }
-               ensures {
-                 ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 31 19 64#
-                  (forall t : (pointer voidP).
-                   (((same_block reject_0 t) /\
-                    (((<=) (sub_pointer reject_0 t) (0)) /\
-                    ((same_block t !r_0) /\ ((<) (sub_pointer t !r_0) (0)))))
-                    ->
-                    (Int8.(<>) (select charP_charM_s_7 !p)
-                    (select charP_charM_reject_8 t)))))
-                 /\
-                 (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 57#
-                 (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 57#
-                 ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 30#
-                  (same_block reject_0 !r_0))
-                 /\
-                 (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 57#
-                 ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 30#
-                  ((<=) (sub_pointer reject_0 !r_0) (0)))
-                 /\
-                 (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 57#
-                 ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 29 57#
-                  (same_block !r_0
-                  (shift reject_0
-                  (Uint64.to_int (strlen reject_0 charP_charM_reject_8)))))
-                 /\
-                 (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 29 57#
-                 ((<=)
-                 (sub_pointer !r_0
-                 (shift reject_0
-                 (Uint64.to_int (strlen reject_0 charP_charM_reject_8))))
-                 (0))))))))))) } ;
-                try
-                 begin
-                 begin
-                 (if
-                 (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 34 19 29#
-                 (Safe_int32.(<>) 
-                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 34 19 21#
-                  "expl:Integer cast"
-                  (Safe_int32_of_Safe_int8.cast 
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 34 19 21#
-                   "expl:Pointer dereference"
-                   (acc  voidP_reject_8_alloc_table charP_charM_reject_8 !r_0
-                    )) ))
-                  (#"strcspn.jc" 315 36 48# "expl:Integer cast"
-                  (Safe_int32.of_int (0))) )) then ()
-                 else (raise (Goto_while_1_break_exc ())));
+               (assert {
+               (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 7 17#
+               "expl:Pointer index bounds" true) }); _jessie_36 end));
+               'Loop_8:
+               loop
+               invariant { (#"strcspn.jc" 346 15 2170# true) }
+                 variant {
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 20 19 48#
+                   (Int.(-)
+                   (Uint64.to_int (strlen reject charP_charM_reject_6))
+                   (sub_pointer !r reject))) }
+                begin
+                any unit
+                requires { true } reads { reject }
+                ensures {
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 19 21 66#
+                   (forall c : (pointer voidP).
+                    (((same_block reject c) /\
+                     (((<=) (sub_pointer reject c) (0)) /\
+                     ((same_block c !r) /\ ((<) (sub_pointer c !r) (0))))) ->
+                     (Int8.(<>) (select charP_charM_reject_6 c)
+                     (select charP_charM_s_0_5 !p_4)))))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 27#
+                   (same_block reject !r))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 27#
+                   ((<=) (sub_pointer reject !r) (0)))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 54#
+                   (same_block !r
+                   (shift reject
+                   (Uint64.to_int (strlen reject charP_charM_reject_6)))))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 54#
+                  ((<=)
+                  (sub_pointer !r
+                  (shift reject
+                  (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))))
+                  } ;
+                 try
+                  begin
+                  begin
                   (if
-                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 35 7 15#
-                  (Safe_int32.(=) 
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 35 7 9#
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 29#
+                  (Safe_int32.(<>) 
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 21#
                    "expl:Integer cast"
                    (Safe_int32_of_Safe_int8.cast 
-                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 35 7 9#
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 21#
                     "expl:Pointer dereference"
-                    (acc  voidP_s_7_alloc_table charP_charM_s_7 !p )) ))
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 35 13 15#
-                   "expl:Integer cast"
-                   (Safe_int32_of_Safe_int8.cast 
-                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 35 13 15#
-                    "expl:Pointer dereference"
-                    (acc  voidP_reject_8_alloc_table charP_charM_reject_8
-                     !r_0 )) )) ))
-                  then
-                   begin
-                   begin
-                   any unit
-                   requires { true }
-                   ensures {
-                     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 36 8 16#
-                     (Int8.(=) (select charP_charM_s_7 !p)
-                     (select charP_charM_reject_8 !r_0))) } ; () end;
+                    (acc  voidP_reject_6_alloc_table charP_charM_reject_6 !r
+                     )) ))
+                   (#"strcspn.jc" 372 36 48# "expl:Integer cast"
+                   (Safe_int32.of_int (0))) )) then ()
+                  else (raise (Goto_while_1_break_exc ())));
+                   (if
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 15#
+                   (Safe_int32.(=) 
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 9#
+                    "expl:Integer cast"
+                    (Safe_int32_of_Safe_int8.cast 
+                     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 9#
+                     "expl:Pointer dereference"
+                     (acc  voidP_s_0_5_alloc_table charP_charM_s_0_5 !p_4 ))
+                     ))
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 13 15#
+                    "expl:Integer cast"
+                    (Safe_int32_of_Safe_int8.cast 
+                     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 13 15#
+                     "expl:Pointer dereference"
+                     (acc  voidP_reject_6_alloc_table charP_charM_reject_6 !r
+                      )) )) ))
+                   then
                     begin
                     (__retres :=
-                     (let _jessie_19 = !count in
+                     (let _jessie_37 = !count in
                      begin
                      (assert {
-                     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 37 4 17#
-                     "expl:Pointer index bounds" true) }); _jessie_19 end));
-                     (raise (Return_label_exc ())) end end else ());
-                  (r_0 :=
-                   (let _jessie_20 =
-                   (shift_typesafe  !r_0
-                    (Safe_int32.to_int 
-                     (#"strcspn.jc" 334 49 61# "expl:Integer cast"
-                     (Safe_int32.of_int (1))) ) ) in
-                   begin
-                   (assert {
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 34 31 34#
-                   "expl:Pointer index bounds" true) }); _jessie_20 end)) end;
-                  (raise (Loop_continue_exc ())) end with Loop_continue_exc
-                 _jessie_5 -> () end end end;
-              (raise (Goto_while_1_break_exc ())) end with
-             Goto_while_1_break_exc _jessie_1 ->
-             'While_1_break:
-             'While_1_break:
-             begin
-             ();
-              'Before:
+                     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 24 4 17#
+                     "expl:Pointer index bounds" true) }); _jessie_37 end));
+                     (raise (Return_label_exc ())) end else ());
+                   (r :=
+                    (let _jessie_38 =
+                    (shift_typesafe  !r
+                     (Safe_int32.to_int 
+                      (#"strcspn.jc" 382 49 61# "expl:Integer cast"
+                      (Safe_int32.of_int (1))) ) ) in
+                    begin
+                    (assert {
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 31 34#
+                    "expl:Pointer index bounds" true) }); _jessie_38 end))
+                  end; (raise (Loop_continue_exc ())) end with
+                  Loop_continue_exc _jessie_5 -> () end end end;
+               (raise (Goto_while_1_break_exc ())) end with
+              Goto_while_1_break_exc _jessie_1 ->
+              'While_1_break:
+              'While_1_break:
               begin
-              'Before: ();
-               begin
+              ();
                (count :=
-                (let _jessie_21 =
+                (let _jessie_39 =
                 (Safe_uint64.(+)  !count
-                 (#"strcspn.jc" 339 61 74# "expl:Integer cast"
+                 (#"strcspn.jc" 386 61 74# "expl:Integer cast"
                  (Safe_uint64.of_int (1))) ) in
                 begin
                 (assert {
-                (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 40 2 9#
-                "expl:Pointer index bounds" true) }); _jessie_21 end));
-                begin
-                any unit
-                requires { true }
-                ensures {
-                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 41 8 50#
-                  ((=) (Int.(+) (Uint64.to_int (at !count 'Before)) (1))
-                  (Uint64.to_int !count))) } ; () end end end end end;
-            (p :=
-             (let _jessie_22 =
-             (shift_typesafe  !p
-              (Safe_int32.to_int 
-               (#"strcspn.jc" 348 40 52# "expl:Integer cast"
-               (Safe_int32.of_int (1))) ) ) in
-             begin
-             (assert {
-             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 26 25 28#
-             "expl:Pointer index bounds" true) }); _jessie_22 end)) end;
-            (raise (Loop_continue_exc ())) end with Loop_continue_exc
-           _jessie_7 -> () end end end; (raise (Goto_while_0_break_exc ()))
-       end end with Goto_while_0_break_exc _jessie_2 ->
-      'While_0_break:
-      'While_0_break:
+                (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 26 2 9#
+                "expl:Pointer index bounds" true) }); _jessie_39 end)) end
+              end;
+             (p_4 :=
+              (let _jessie_40 =
+              (shift_typesafe  !p_4
+               (Safe_int32.to_int 
+                (#"strcspn.jc" 388 40 52# "expl:Integer cast"
+                (Safe_int32.of_int (1))) ) ) in
+              begin
+              (assert {
+              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 25 28#
+              "expl:Pointer index bounds" true) }); _jessie_40 end)) end;
+             (raise (Loop_continue_exc ())) end with Loop_continue_exc
+            _jessie_7 -> () end end end; (raise (Goto_while_0_break_exc ()))
+        end end with Goto_while_0_break_exc _jessie_2 ->
+       'While_0_break:
+       'While_0_break:
+       begin
+       ();
+        (__retres :=
+         (let _jessie_42 = !count in
+         begin
+         (assert {
+         (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 28 1 14#
+         "expl:Pointer index bounds" true) }); _jessie_42 end)) end end;
+       (raise (Return_label_exc ())) end with Return_label_exc _jessie_3 ->
+      'Return_label:
+      'Return_label:
       begin
-      ();
-       (__retres :=
-        (let _jessie_24 = !count in
-        begin
-        (assert {
-        (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 43 1 14#
-        "expl:Pointer index bounds" true) }); _jessie_24 end)) end end;
-      (raise (Return_label_exc ())) end with Return_label_exc _jessie_3 ->
-     'Return_label:
-     'Return_label:
-     begin
-     (return :=
-      (let _jessie_25 = !__retres in
-      begin
-      (assert { (#"strcspn.jc" 354 7 22# "expl:Pointer index bounds" true) });
-       _jessie_25 end)); (raise Return) end end)))); absurd  end with Return
-    -> !return end)
+      (return :=
+       (let _jessie_43 = !__retres in
+       begin
+       (assert { (#"strcspn.jc" 394 7 22# "expl:Pointer index bounds" true)
+       }); _jessie_43 end)); (raise Return) end end)))); absurd  end with
+    Return -> !return end)
   
 end
 
@@ -2496,7 +2228,7 @@ module Unsafe_int32_of_Unsafe_int8
   
 end
 
-module Function_strcspn_0_behaviors
+module Function_strcspn_behaviors
 
   use Unsafe_uint64 
   
@@ -2538,276 +2270,852 @@ module Function_strcspn_0_behaviors
   
   use import Axiomatic_Strlen 
   
-  use import Axiomatic_Strcspn 
-  
   use why3.Bool.Bool 
   
   let strcspn_ensures_default
-  #"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 7 49#
+  #"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 3 7 49#
   "expl:Function strcspn, default behavior" =
   fun
-   (s_0 : (pointer voidP)) (reject_0 : (pointer voidP))
-   (voidP_s_7_alloc_table : (alloc_table voidP)) (voidP_reject_8_alloc_table
-   : (alloc_table voidP)) (voidP_reject_8_tag_table : (tag_table voidP))
-   (voidP_s_7_tag_table : (tag_table voidP)) (charP_charM_s_7 : (memory voidP
-   Int8.t)) (charP_charM_reject_8 : (memory voidP Int8.t)) 
+   (s_0 : (pointer voidP)) (reject : (pointer voidP))
+   (voidP_s_0_5_alloc_table : (alloc_table voidP))
+   (voidP_reject_6_alloc_table : (alloc_table voidP))
+   (voidP_reject_6_tag_table : (tag_table voidP)) (voidP_s_0_5_tag_table :
+   (tag_table voidP)) (charP_charM_s_0_5 : (memory voidP Int8.t))
+   (charP_charM_reject_6 : (memory voidP Int8.t)) 
    requires {
-   (((allocated voidP_reject_8_alloc_table reject_0) ->
-     (((=) (typeof voidP_reject_8_tag_table reject_0) charP_tag) /\
+   (((allocated voidP_reject_6_alloc_table reject) ->
+     (((=) (typeof voidP_reject_6_tag_table reject) charP_tag) /\
      (forall i : int.
-      ((((<=) (offset_min voidP_reject_8_alloc_table reject_0) i) /\
-       ((<) i (offset_max voidP_reject_8_alloc_table reject_0))) ->
-       ((=) (typeof voidP_reject_8_tag_table (shift reject_0 i)) charP_tag)))))
+      ((((<=) (offset_min voidP_reject_6_alloc_table reject) i) /\
+       ((<) i (offset_max voidP_reject_6_alloc_table reject))) ->
+       ((=) (typeof voidP_reject_6_tag_table (shift reject i)) charP_tag)))))
    /\
-   (((allocated voidP_s_7_alloc_table s_0) ->
-     (((=) (typeof voidP_s_7_tag_table s_0) charP_tag) /\
+   (((allocated voidP_s_0_5_alloc_table s_0) ->
+     (((=) (typeof voidP_s_0_5_tag_table s_0) charP_tag) /\
      (forall i : int.
-      ((((<=) (offset_min voidP_s_7_alloc_table s_0) i) /\
-       ((<) i (offset_max voidP_s_7_alloc_table s_0))) ->
-       ((=) (typeof voidP_s_7_tag_table (shift s_0 i)) charP_tag)))))
+      ((((<=) (offset_min voidP_s_0_5_alloc_table s_0) i) /\
+       ((<) i (offset_max voidP_s_0_5_alloc_table s_0))) ->
+       ((=) (typeof voidP_s_0_5_tag_table (shift s_0 i)) charP_tag)))))
    /\
-   (#"strcspn.jc" 211 12 90#
-   ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 3 10 22#
-    (valid_str s_0 voidP_s_7_alloc_table charP_charM_s_7))
+   (#"strcspn.jc" 120 12 92#
+   ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 13 10 22#
+    (valid_str s_0 voidP_s_0_5_alloc_table charP_charM_s_0_5))
    /\
-   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 4 11 28#
-   (valid_str reject_0 voidP_reject_8_alloc_table charP_charM_reject_8))))))
-   }
+   (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 14 13 30#
+   (valid_str reject voidP_reject_6_alloc_table charP_charM_reject_6)))))) }
    ensures {
      ("expl:Postcondition"
-     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
+     (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
      "expl:Ensures clause"
-     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
+     (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
      "expl:Ensures clause"
-     ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 22#
+     ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 24#
       "expl:Ensures clause" ((<=) (0) (Uint64.to_int result)))
      /\
-     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
+     (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
      "expl:Ensures clause"
-     ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 15 35#
+     ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 17 37#
       "expl:Ensures clause"
-      (Uint64.(<=) result (strlen s_0 charP_charM_s_7)))
+      (Uint64.(<=) result (strlen s_0 charP_charM_s_0_5)))
      /\
-     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
+     (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 17 12 143#
      "expl:Ensures clause"
-     ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 7 11 111#
-      "expl:Ensures clause"
-      (forall t_1 : (pointer voidP).
-       (forall i_6 : int.
-        ((((<=) (0) i_6) /\
-         (((<) i_6 (Uint64.to_int result)) /\
-         ((same_block reject_0 t_1) /\
-         (((<=) (sub_pointer reject_0 t_1) (0)) /\
-         ((same_block t_1
-          (shift reject_0
-          (Uint64.to_int (strlen reject_0 charP_charM_reject_8))))
-         /\
-         ((<)
-         (sub_pointer t_1
-         (shift reject_0
-         (Uint64.to_int (strlen reject_0 charP_charM_reject_8)))) (0)))))))
-         ->
-         (Int8.(<>) (select charP_charM_s_7 (shift s_0 i_6))
-         (select charP_charM_reject_8 t_1))))))
-     /\
-     (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 8 11 40#
-     "expl:Ensures clause" (Uint64.(=) result (strcspn s_0 reject_0)))))))))))
-     } diverges  ->
+     (forall p_1 : (pointer voidP).
+      (forall t_3 : (pointer voidP).
+       (((same_block s_0 p_1) /\
+        (((<=) (sub_pointer s_0 p_1) (0)) /\
+        ((same_block p_1 (shift s_0 (Uint64.to_int result))) /\
+        (((<) (sub_pointer p_1 (shift s_0 (Uint64.to_int result))) (0)) /\
+        ((same_block reject t_3) /\
+        (((<=) (sub_pointer reject t_3) (0)) /\
+        ((same_block t_3
+         (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+        /\
+        ((<)
+        (sub_pointer t_3
+        (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+        (0))))))))) ->
+        (Int8.(<>) (select charP_charM_s_0_5 p_1)
+        (select charP_charM_reject_6 t_3)))))))))))) } diverges  ->
    'Init:
    (let return = ref (Unsafe_uint64.any_  () ) in
    try
     begin
-    (let p = ref (any_pointer  () : (pointer voidP)) in
-    (let r_0 = ref (any_pointer  () : (pointer voidP)) in
-    (let count = ref (Unsafe_uint64.any_  () ) in
-    (let __retres = ref (Unsafe_uint64.any_  () ) in
-    try
-     begin
+    (check {
+    (#"strcspn.jc" 190 10 3429# "expl:Behavior disjointness check"
+    (not
+    ((exists p_0_0 : (pointer voidP).
+      (exists t_1_0 : (pointer voidP).
+       ((same_block s_0 p_0_0) /\
+       (((<=) (sub_pointer s_0 p_0_0) (0)) /\
+       ((same_block p_0_0
+        (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+       /\
+       (((<)
+        (sub_pointer p_0_0
+        (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0))
+       /\
+       ((same_block reject t_1_0) /\
+       (((<=) (sub_pointer reject t_1_0) (0)) /\
+       ((same_block t_1_0
+        (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+       /\
+       (((<)
+        (sub_pointer t_1_0
+        (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+        (0))
+       /\
+       (Int8.(=) (select charP_charM_s_0_5 p_0_0)
+       (select charP_charM_reject_6 t_1_0))))))))))))
+    /\
+    (forall p_2 : (pointer voidP).
+     (forall t_0_0 : (pointer voidP).
+      (((same_block s_0 p_2) /\
+       (((<=) (sub_pointer s_0 p_2) (0)) /\
+       ((same_block p_2
+        (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+       /\
+       (((<)
+        (sub_pointer p_2
+        (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0))
+       /\
+       ((same_block reject t_0_0) /\
+       (((<=) (sub_pointer reject t_0_0) (0)) /\
+       ((same_block t_0_0
+        (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+       /\
+       ((<)
+       (sub_pointer t_0_0
+       (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+       (0))))))))) ->
+       (Int8.(<>) (select charP_charM_s_0_5 p_2)
+       (select charP_charM_reject_6 t_0_0)))))))) });
+     (check {
+     (#"strcspn.jc" 241 10 3278# "expl:Behavior completeness check"
+     ((forall p_3 : (pointer voidP).
+       (forall t_0_1 : (pointer voidP).
+        (((same_block s_0 p_3) /\
+         (((<=) (sub_pointer s_0 p_3) (0)) /\
+         ((same_block p_3
+          (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+         /\
+         (((<)
+          (sub_pointer p_3
+          (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0))
+         /\
+         ((same_block reject t_0_1) /\
+         (((<=) (sub_pointer reject t_0_1) (0)) /\
+         ((same_block t_0_1
+          (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+         /\
+         ((<)
+         (sub_pointer t_0_1
+         (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+         (0))))))))) ->
+         (Int8.(<>) (select charP_charM_s_0_5 p_3)
+         (select charP_charM_reject_6 t_0_1)))))
+     \/
+     (exists p_0_1 : (pointer voidP).
+      (exists t_1_1 : (pointer voidP).
+       ((same_block s_0 p_0_1) /\
+       (((<=) (sub_pointer s_0 p_0_1) (0)) /\
+       ((same_block p_0_1
+        (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+       /\
+       (((<)
+        (sub_pointer p_0_1
+        (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0))
+       /\
+       ((same_block reject t_1_1) /\
+       (((<=) (sub_pointer reject t_1_1) (0)) /\
+       ((same_block t_1_1
+        (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+       /\
+       (((<)
+        (sub_pointer t_1_1
+        (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+        (0))
+       /\
+       (Int8.(=) (select charP_charM_s_0_5 p_0_1)
+       (select charP_charM_reject_6 t_1_1)))))))))))))) });
+     (let p_4 = ref (any_pointer  () : (pointer voidP)) in
+     (let r = ref (any_pointer  () : (pointer voidP)) in
+     (let count = ref (Unsafe_uint64.any_  () ) in
+     (let __retres = ref (Unsafe_uint64.any_  () ) in
      try
       begin
-      (count :=
-       (#"strcspn.jc" 244 24 37# "expl:Integer cast"
-       (Unsafe_uint64.of_int (0))));
+      try
        begin
-       (p := s_0);
-        'Loop_1:
-        loop
-        invariant
-          { ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 41#
-             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 41#
-             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 24#
-              (same_block s_0 !p))
-             /\
-             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 41#
-             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 24#
-              ((<=) (sub_pointer s_0 !p) (0)))
-             /\
-             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 18 41#
-             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 23 41#
-              (same_block !p
-              (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_7)))))
-             /\
-             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 23 41#
-             ((<=)
-             (sub_pointer !p
-             (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_7)))) (0))))))))))
-            &&
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 21 44#
-             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 21 44#
-             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 21 31#
-              ((<=) (0) (Uint64.to_int !count)))
-             /\
-             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 44#
-             (Uint64.(<=) !count (strlen s_0 charP_charM_s_7))))))
-            &&
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 19 18 32#
-             ((=) (Uint64.to_int !count) (sub_pointer !p s_0)))
-            &&
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 21 18 103#
-            (forall z : (pointer voidP).
-             (forall t_0 : (pointer voidP).
-              (((same_block s_0 z) /\
-               (((<=) (sub_pointer s_0 z) (0)) /\
-               ((same_block z !p) /\
-               (((<) (sub_pointer z !p) (0)) /\
-               ((same_block reject_0 t_0) /\
-               (((<=) (sub_pointer reject_0 t_0) (0)) /\
-               ((same_block t_0
-                (shift reject_0
-                (Uint64.to_int (strlen reject_0 charP_charM_reject_8))))
-               /\
-               ((<)
-               (sub_pointer t_0
-               (shift reject_0
-               (Uint64.to_int (strlen reject_0 charP_charM_reject_8)))) (0)))))))))
-               ->
-               (Int8.(<>) (select charP_charM_s_7 z)
-               (select charP_charM_reject_8 t_0))))))))) } 
-         begin
-         any unit requires { true } ensures { true } ;
-          try
-           begin
-           begin
-           (if
-           (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 26 13 23#
-           (Unsafe_int32.(<>) 
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 26 13 15#
-            "expl:Integer cast"
-            (Unsafe_int32_of_Unsafe_int8.cast  (acc  charP_charM_s_7 !p ) ))
-            (#"strcspn.jc" 284 27 39# "expl:Integer cast"
-            (Unsafe_int32.of_int (0))) )) then ()
-           else (raise (Goto_while_0_break_exc ())));
-            try
-             begin
-             (r_0 := reject_0);
-              'Loop_2:
-              loop
-              invariant
-                { ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 57#
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 57#
-                   ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 30#
-                    (same_block reject_0 !r_0))
-                   /\
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 57#
-                   ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 30#
-                    ((<=) (sub_pointer reject_0 !r_0) (0)))
-                   /\
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 19 57#
-                   ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 29 57#
-                    (same_block !r_0
-                    (shift reject_0
-                    (Uint64.to_int (strlen reject_0 charP_charM_reject_8)))))
-                   /\
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 29 29 57#
-                   ((<=)
-                   (sub_pointer !r_0
-                   (shift reject_0
-                   (Uint64.to_int (strlen reject_0 charP_charM_reject_8))))
-                   (0))))))))))
-                  &&
-                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 31 19 64#
-                  (forall t : (pointer voidP).
-                   (((same_block reject_0 t) /\
-                    (((<=) (sub_pointer reject_0 t) (0)) /\
-                    ((same_block t !r_0) /\ ((<) (sub_pointer t !r_0) (0)))))
-                    ->
-                    (Int8.(<>) (select charP_charM_s_7 !p)
-                    (select charP_charM_reject_8 t)))))) } 
-               begin
-               any unit requires { true } ensures { true } ;
-                try
-                 begin
-                 begin
-                 (if
-                 (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 34 19 29#
-                 (Unsafe_int32.(<>) 
-                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 34 19 21#
-                  "expl:Integer cast"
-                  (Unsafe_int32_of_Unsafe_int8.cast 
-                   (acc  charP_charM_reject_8 !r_0 ) ))
-                  (#"strcspn.jc" 315 36 48# "expl:Integer cast"
-                  (Unsafe_int32.of_int (0))) )) then ()
-                 else (raise (Goto_while_1_break_exc ())));
-                  (if
-                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 35 7 15#
-                  (Unsafe_int32.(=) 
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 35 7 9#
-                   "expl:Integer cast"
-                   (Unsafe_int32_of_Unsafe_int8.cast 
-                    (acc  charP_charM_s_7 !p ) ))
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 35 13 15#
-                   "expl:Integer cast"
-                   (Unsafe_int32_of_Unsafe_int8.cast 
-                    (acc  charP_charM_reject_8 !r_0 ) )) ))
-                  then
-                   begin
-                   begin
-                   (assert {
-                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 36 8 16#
-                   "expl:Assertion in line 36"
-                   (Int8.(=) (select charP_charM_s_7 !p)
-                   (select charP_charM_reject_8 !r_0))) }); () end;
-                    begin (__retres := !count); (raise (Return_label_exc ()))
-                    end end else ());
-                  (r_0 :=
-                   (shift_  !r_0
-                    (Unsafe_int32.to_int 
-                     (#"strcspn.jc" 334 49 61# "expl:Integer cast"
-                     (Unsafe_int32.of_int (1))) ) )) end;
-                  (raise (Loop_continue_exc ())) end with Loop_continue_exc
-                 _jessie_5 -> () end end end;
-              (raise (Goto_while_1_break_exc ())) end with
-             Goto_while_1_break_exc _jessie_1 ->
-             'While_1_break:
-             'While_1_break:
-             begin
-             ();
-              'Before:
+       (count :=
+        (#"strcspn.jc" 300 24 37# "expl:Integer cast"
+        (Unsafe_uint64.of_int (0))));
+        begin
+        (p_4 := s_0);
+         'Loop_1:
+         loop
+         invariant
+           { ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+              ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 22#
+               (same_block s_0 !p_4))
+              /\
+              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+              ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 22#
+               ((<=) (sub_pointer s_0 !p_4) (0)))
+              /\
+              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+              ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 21 39#
+               (same_block !p_4
+               (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))))
+              /\
+              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 21 39#
+              ((<=)
+              (sub_pointer !p_4
+              (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+              (0))))))))))
+             &&
+             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 43#
+              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 43#
+              ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 30#
+               ((<=) (0) (Uint64.to_int !count)))
+              /\
+              (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 25 43#
+              (Uint64.(<=) !count (strlen s_0 charP_charM_s_0_5))))))
+             &&
+             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 11 20 34#
+              ((=) (Uint64.to_int !count) (sub_pointer !p_4 s_0)))
+             &&
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 12 20 145#
+             (forall c_0 : (pointer voidP).
+              (forall t : (pointer voidP).
+               (((same_block s_0 c_0) /\
+                (((<=) (sub_pointer s_0 c_0) (0)) /\
+                ((same_block c_0 !p_4) /\
+                (((<) (sub_pointer c_0 !p_4) (0)) /\
+                ((same_block reject t) /\
+                (((<=) (sub_pointer reject t) (0)) /\
+                ((same_block t
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                /\
+                ((<)
+                (sub_pointer t
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))
+                ->
+                (Int8.(<>) (select charP_charM_s_0_5 c_0)
+                (select charP_charM_reject_6 t))))))))) } 
+          begin
+          any unit requires { true } ensures { true } ;
+           try
+            begin
+            begin
+            (if
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 23#
+            (Unsafe_int32.(<>) 
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 15#
+             "expl:Integer cast"
+             (Unsafe_int32_of_Unsafe_int8.cast 
+              (acc  charP_charM_s_0_5 !p_4 ) ))
+             (#"strcspn.jc" 341 27 39# "expl:Integer cast"
+             (Unsafe_int32.of_int (0))) )) then ()
+            else (raise (Goto_while_0_break_exc ())));
+             try
               begin
-              'Before: ();
-               begin
+              (r := reject);
+               'Loop_2:
+               loop
+               invariant
+                 { ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                    ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 27#
+                     (same_block reject !r))
+                    /\
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                    ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 27#
+                     ((<=) (sub_pointer reject !r) (0)))
+                    /\
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                    ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 54#
+                     (same_block !r
+                     (shift reject
+                     (Uint64.to_int (strlen reject charP_charM_reject_6)))))
+                    /\
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 54#
+                    ((<=)
+                    (sub_pointer !r
+                    (shift reject
+                    (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                    (0))))))))))
+                   &&
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 19 21 66#
+                   (forall c : (pointer voidP).
+                    (((same_block reject c) /\
+                     (((<=) (sub_pointer reject c) (0)) /\
+                     ((same_block c !r) /\ ((<) (sub_pointer c !r) (0))))) ->
+                     (Int8.(<>) (select charP_charM_reject_6 c)
+                     (select charP_charM_s_0_5 !p_4)))))) } 
+                begin
+                any unit requires { true } ensures { true } ;
+                 try
+                  begin
+                  begin
+                  (if
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 29#
+                  (Unsafe_int32.(<>) 
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 21#
+                   "expl:Integer cast"
+                   (Unsafe_int32_of_Unsafe_int8.cast 
+                    (acc  charP_charM_reject_6 !r ) ))
+                   (#"strcspn.jc" 372 36 48# "expl:Integer cast"
+                   (Unsafe_int32.of_int (0))) )) then ()
+                  else (raise (Goto_while_1_break_exc ())));
+                   (if
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 15#
+                   (Unsafe_int32.(=) 
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 9#
+                    "expl:Integer cast"
+                    (Unsafe_int32_of_Unsafe_int8.cast 
+                     (acc  charP_charM_s_0_5 !p_4 ) ))
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 13 15#
+                    "expl:Integer cast"
+                    (Unsafe_int32_of_Unsafe_int8.cast 
+                     (acc  charP_charM_reject_6 !r ) )) ))
+                   then
+                    begin (__retres := !count); (raise (Return_label_exc ()))
+                    end else ());
+                   (r :=
+                    (shift_  !r
+                     (Unsafe_int32.to_int 
+                      (#"strcspn.jc" 382 49 61# "expl:Integer cast"
+                      (Unsafe_int32.of_int (1))) ) )) end;
+                   (raise (Loop_continue_exc ())) end with Loop_continue_exc
+                  _jessie_5 -> () end end end;
+               (raise (Goto_while_1_break_exc ())) end with
+              Goto_while_1_break_exc _jessie_1 ->
+              'While_1_break:
+              'While_1_break:
+              begin
+              ();
                (count :=
                 (Unsafe_uint64.(+)  !count
-                 (#"strcspn.jc" 339 61 74# "expl:Integer cast"
-                 (Unsafe_uint64.of_int (1))) ));
+                 (#"strcspn.jc" 386 61 74# "expl:Integer cast"
+                 (Unsafe_uint64.of_int (1))) )) end end;
+             (p_4 :=
+              (shift_  !p_4
+               (Unsafe_int32.to_int 
+                (#"strcspn.jc" 388 40 52# "expl:Integer cast"
+                (Unsafe_int32.of_int (1))) ) )) end;
+             (raise (Loop_continue_exc ())) end with Loop_continue_exc
+            _jessie_7 -> () end end end; (raise (Goto_while_0_break_exc ()))
+        end end with Goto_while_0_break_exc _jessie_2 ->
+       'While_0_break: 'While_0_break: begin (); (__retres := !count) end end;
+       (raise (Return_label_exc ())) end with Return_label_exc _jessie_3 ->
+      'Return_label:
+      'Return_label: begin (return := !__retres); (raise Return) end end))));
+     absurd  end with Return -> !return end)
+  
+  let strcspn_ensures_exists
+  #"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 3 7 49#
+  "expl:Function strcspn, behavior exists" =
+  fun
+   (s_0 : (pointer voidP)) (reject : (pointer voidP))
+   (voidP_s_0_5_alloc_table : (alloc_table voidP))
+   (voidP_reject_6_alloc_table : (alloc_table voidP))
+   (voidP_reject_6_tag_table : (tag_table voidP)) (voidP_s_0_5_tag_table :
+   (tag_table voidP)) (charP_charM_s_0_5 : (memory voidP Int8.t))
+   (charP_charM_reject_6 : (memory voidP Int8.t)) 
+   requires {
+   ((exists p_0 : (pointer voidP).
+     (exists t_1 : (pointer voidP).
+      ((same_block s_0 p_0) /\
+      (((<=) (sub_pointer s_0 p_0) (0)) /\
+      ((same_block p_0
+       (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+      /\
+      (((<)
+       (sub_pointer p_0
+       (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0))
+      /\
+      ((same_block reject t_1) /\
+      (((<=) (sub_pointer reject t_1) (0)) /\
+      ((same_block t_1
+       (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+      /\
+      (((<)
+       (sub_pointer t_1
+       (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+       (0))
+      /\
+      (Int8.(=) (select charP_charM_s_0_5 p_0)
+      (select charP_charM_reject_6 t_1))))))))))))
+   /\
+   (((allocated voidP_reject_6_alloc_table reject) ->
+     (((=) (typeof voidP_reject_6_tag_table reject) charP_tag) /\
+     (forall i : int.
+      ((((<=) (offset_min voidP_reject_6_alloc_table reject) i) /\
+       ((<) i (offset_max voidP_reject_6_alloc_table reject))) ->
+       ((=) (typeof voidP_reject_6_tag_table (shift reject i)) charP_tag)))))
+   /\
+   (((allocated voidP_s_0_5_alloc_table s_0) ->
+     (((=) (typeof voidP_s_0_5_tag_table s_0) charP_tag) /\
+     (forall i : int.
+      ((((<=) (offset_min voidP_s_0_5_alloc_table s_0) i) /\
+       ((<) i (offset_max voidP_s_0_5_alloc_table s_0))) ->
+       ((=) (typeof voidP_s_0_5_tag_table (shift s_0 i)) charP_tag)))))
+   /\
+   (#"strcspn.jc" 120 12 92#
+   ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 13 10 22#
+    (valid_str s_0 voidP_s_0_5_alloc_table charP_charM_s_0_5))
+   /\
+   (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 14 13 30#
+   (valid_str reject voidP_reject_6_alloc_table charP_charM_reject_6))))))) }
+   ensures {
+     ("expl:Postcondition"
+     (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 26 15 89#
+     "expl:Ensures clause"
+     (exists t_2 : (pointer voidP).
+      ((same_block reject t_2) /\
+      (((<=) (sub_pointer reject t_2) (0)) /\
+      ((same_block t_2
+       (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+      /\
+      (((<)
+       (sub_pointer t_2
+       (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+       (0))
+      /\
+      (Int8.(=) (select charP_charM_s_0_5 (shift s_0 (Uint64.to_int result)))
+      (select charP_charM_reject_6 t_2))))))))) } diverges  ->
+   'Init:
+   (let return = ref (Unsafe_uint64.any_  () ) in
+   try
+    begin
+    (); ();
+     (let p_4 = ref (any_pointer  () : (pointer voidP)) in
+     (let r = ref (any_pointer  () : (pointer voidP)) in
+     (let count = ref (Unsafe_uint64.any_  () ) in
+     (let __retres = ref (Unsafe_uint64.any_  () ) in
+     try
+      begin
+      try
+       begin
+       (count :=
+        (#"strcspn.jc" 300 24 37# "expl:Integer cast"
+        (Unsafe_uint64.of_int (0))));
+        begin
+        (p_4 := s_0);
+         'Loop_3:
+         loop
+         invariant { (#"strcspn.jc" 303 6 4658# true) } 
+          begin
+          any unit
+          requires { true } reads { reject, s_0 }
+          ensures {
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 12 20 145#
+             (forall c_0 : (pointer voidP).
+              (forall t : (pointer voidP).
+               (((same_block s_0 c_0) /\
+                (((<=) (sub_pointer s_0 c_0) (0)) /\
+                ((same_block c_0 !p_4) /\
+                (((<) (sub_pointer c_0 !p_4) (0)) /\
+                ((same_block reject t) /\
+                (((<=) (sub_pointer reject t) (0)) /\
+                ((same_block t
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                /\
+                ((<)
+                (sub_pointer t
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))
+                ->
+                (Int8.(<>) (select charP_charM_s_0_5 c_0)
+                (select charP_charM_reject_6 t))))))
+            /\
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 11 20 34#
+             ((=) (Uint64.to_int !count) (sub_pointer !p_4 s_0)))
+            /\
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 43#
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 43#
+             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 30#
+              ((<=) (0) (Uint64.to_int !count)))
+             /\
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 25 43#
+             (Uint64.(<=) !count (strlen s_0 charP_charM_s_0_5))))))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 22#
+             (same_block s_0 !p_4))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 22#
+             ((<=) (sub_pointer s_0 !p_4) (0)))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 21 39#
+             (same_block !p_4
+             (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 21 39#
+            ((<=)
+            (sub_pointer !p_4
+            (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0)))))))))))))
+            } ;
+           try
+            begin
+            begin
+            (if
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 23#
+            (Unsafe_int32.(<>) 
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 15#
+             "expl:Integer cast"
+             (Unsafe_int32_of_Unsafe_int8.cast 
+              (acc  charP_charM_s_0_5 !p_4 ) ))
+             (#"strcspn.jc" 341 27 39# "expl:Integer cast"
+             (Unsafe_int32.of_int (0))) )) then ()
+            else (raise (Goto_while_0_break_exc ())));
+             try
+              begin
+              (r := reject);
+               'Loop_4:
+               loop
+               invariant { (#"strcspn.jc" 346 15 2170# true) } 
                 begin
-                (assert {
-                (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 41 8 50#
-                "expl:Assertion in line 41"
-                ((=) (Int.(+) (Uint64.to_int (at !count 'Before)) (1))
-                (Uint64.to_int !count))) }); () end end end end end;
-            (p :=
-             (shift_  !p
-              (Unsafe_int32.to_int 
-               (#"strcspn.jc" 348 40 52# "expl:Integer cast"
-               (Unsafe_int32.of_int (1))) ) )) end;
-            (raise (Loop_continue_exc ())) end with Loop_continue_exc
-           _jessie_7 -> () end end end; (raise (Goto_while_0_break_exc ()))
-       end end with Goto_while_0_break_exc _jessie_2 ->
-      'While_0_break: 'While_0_break: begin (); (__retres := !count) end end;
-      (raise (Return_label_exc ())) end with Return_label_exc _jessie_3 ->
-     'Return_label:
-     'Return_label: begin (return := !__retres); (raise Return) end end))));
+                any unit
+                requires { true } reads { reject }
+                ensures {
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 19 21 66#
+                   (forall c : (pointer voidP).
+                    (((same_block reject c) /\
+                     (((<=) (sub_pointer reject c) (0)) /\
+                     ((same_block c !r) /\ ((<) (sub_pointer c !r) (0))))) ->
+                     (Int8.(<>) (select charP_charM_reject_6 c)
+                     (select charP_charM_s_0_5 !p_4)))))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 27#
+                   (same_block reject !r))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 27#
+                   ((<=) (sub_pointer reject !r) (0)))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 54#
+                   (same_block !r
+                   (shift reject
+                   (Uint64.to_int (strlen reject charP_charM_reject_6)))))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 54#
+                  ((<=)
+                  (sub_pointer !r
+                  (shift reject
+                  (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))))
+                  } ;
+                 try
+                  begin
+                  begin
+                  (if
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 29#
+                  (Unsafe_int32.(<>) 
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 21#
+                   "expl:Integer cast"
+                   (Unsafe_int32_of_Unsafe_int8.cast 
+                    (acc  charP_charM_reject_6 !r ) ))
+                   (#"strcspn.jc" 372 36 48# "expl:Integer cast"
+                   (Unsafe_int32.of_int (0))) )) then ()
+                  else (raise (Goto_while_1_break_exc ())));
+                   (if
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 15#
+                   (Unsafe_int32.(=) 
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 9#
+                    "expl:Integer cast"
+                    (Unsafe_int32_of_Unsafe_int8.cast 
+                     (acc  charP_charM_s_0_5 !p_4 ) ))
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 13 15#
+                    "expl:Integer cast"
+                    (Unsafe_int32_of_Unsafe_int8.cast 
+                     (acc  charP_charM_reject_6 !r ) )) ))
+                   then
+                    begin (__retres := !count); (raise (Return_label_exc ()))
+                    end else ());
+                   (r :=
+                    (shift_  !r
+                     (Unsafe_int32.to_int 
+                      (#"strcspn.jc" 382 49 61# "expl:Integer cast"
+                      (Unsafe_int32.of_int (1))) ) )) end;
+                   (raise (Loop_continue_exc ())) end with Loop_continue_exc
+                  _jessie_5 -> () end end end;
+               (raise (Goto_while_1_break_exc ())) end with
+              Goto_while_1_break_exc _jessie_1 ->
+              'While_1_break:
+              'While_1_break:
+              begin
+              ();
+               (count :=
+                (Unsafe_uint64.(+)  !count
+                 (#"strcspn.jc" 386 61 74# "expl:Integer cast"
+                 (Unsafe_uint64.of_int (1))) )) end end;
+             (p_4 :=
+              (shift_  !p_4
+               (Unsafe_int32.to_int 
+                (#"strcspn.jc" 388 40 52# "expl:Integer cast"
+                (Unsafe_int32.of_int (1))) ) )) end;
+             (raise (Loop_continue_exc ())) end with Loop_continue_exc
+            _jessie_7 -> () end end end; (raise (Goto_while_0_break_exc ()))
+        end end with Goto_while_0_break_exc _jessie_2 ->
+       'While_0_break: 'While_0_break: begin (); (__retres := !count) end end;
+       (raise (Return_label_exc ())) end with Return_label_exc _jessie_3 ->
+      'Return_label:
+      'Return_label: begin (return := !__retres); (raise Return) end end))));
+     absurd  end with Return -> !return end)
+  
+  let strcspn_ensures_not_exists
+  #"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 3 7 49#
+  "expl:Function strcspn, behavior not_exists" =
+  fun
+   (s_0 : (pointer voidP)) (reject : (pointer voidP))
+   (voidP_s_0_5_alloc_table : (alloc_table voidP))
+   (voidP_reject_6_alloc_table : (alloc_table voidP))
+   (voidP_reject_6_tag_table : (tag_table voidP)) (voidP_s_0_5_tag_table :
+   (tag_table voidP)) (charP_charM_s_0_5 : (memory voidP Int8.t))
+   (charP_charM_reject_6 : (memory voidP Int8.t)) 
+   requires {
+   ((forall p : (pointer voidP).
+     (forall t_0 : (pointer voidP).
+      (((same_block s_0 p) /\
+       (((<=) (sub_pointer s_0 p) (0)) /\
+       ((same_block p
+        (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+       /\
+       (((<)
+        (sub_pointer p
+        (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0))
+       /\
+       ((same_block reject t_0) /\
+       (((<=) (sub_pointer reject t_0) (0)) /\
+       ((same_block t_0
+        (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+       /\
+       ((<)
+       (sub_pointer t_0
+       (shift reject (Uint64.to_int (strlen reject charP_charM_reject_6))))
+       (0))))))))) ->
+       (Int8.(<>) (select charP_charM_s_0_5 p)
+       (select charP_charM_reject_6 t_0)))))
+   /\
+   (((allocated voidP_reject_6_alloc_table reject) ->
+     (((=) (typeof voidP_reject_6_tag_table reject) charP_tag) /\
+     (forall i : int.
+      ((((<=) (offset_min voidP_reject_6_alloc_table reject) i) /\
+       ((<) i (offset_max voidP_reject_6_alloc_table reject))) ->
+       ((=) (typeof voidP_reject_6_tag_table (shift reject i)) charP_tag)))))
+   /\
+   (((allocated voidP_s_0_5_alloc_table s_0) ->
+     (((=) (typeof voidP_s_0_5_tag_table s_0) charP_tag) /\
+     (forall i : int.
+      ((((<=) (offset_min voidP_s_0_5_alloc_table s_0) i) /\
+       ((<) i (offset_max voidP_s_0_5_alloc_table s_0))) ->
+       ((=) (typeof voidP_s_0_5_tag_table (shift s_0 i)) charP_tag)))))
+   /\
+   (#"strcspn.jc" 120 12 92#
+   ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 13 10 22#
+    (valid_str s_0 voidP_s_0_5_alloc_table charP_charM_s_0_5))
+   /\
+   (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 14 13 30#
+   (valid_str reject voidP_reject_6_alloc_table charP_charM_reject_6))))))) }
+   ensures {
+     ("expl:Postcondition"
+     (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 32 15 35#
+     "expl:Ensures clause"
+     (Uint64.(=) result (strlen s_0 charP_charM_s_0_5)))) } diverges  ->
+   'Init:
+   (let return = ref (Unsafe_uint64.any_  () ) in
+   try
+    begin
+    (); ();
+     (let p_4 = ref (any_pointer  () : (pointer voidP)) in
+     (let r = ref (any_pointer  () : (pointer voidP)) in
+     (let count = ref (Unsafe_uint64.any_  () ) in
+     (let __retres = ref (Unsafe_uint64.any_  () ) in
+     try
+      begin
+      try
+       begin
+       (count :=
+        (#"strcspn.jc" 300 24 37# "expl:Integer cast"
+        (Unsafe_uint64.of_int (0))));
+        begin
+        (p_4 := s_0);
+         'Loop_5:
+         loop
+         invariant { (#"strcspn.jc" 303 6 4658# true) } 
+          begin
+          any unit
+          requires { true } reads { reject, s_0 }
+          ensures {
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 12 20 145#
+             (forall c_0 : (pointer voidP).
+              (forall t : (pointer voidP).
+               (((same_block s_0 c_0) /\
+                (((<=) (sub_pointer s_0 c_0) (0)) /\
+                ((same_block c_0 !p_4) /\
+                (((<) (sub_pointer c_0 !p_4) (0)) /\
+                ((same_block reject t) /\
+                (((<=) (sub_pointer reject t) (0)) /\
+                ((same_block t
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                /\
+                ((<)
+                (sub_pointer t
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))
+                ->
+                (Int8.(<>) (select charP_charM_s_0_5 c_0)
+                (select charP_charM_reject_6 t))))))
+            /\
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 11 20 34#
+             ((=) (Uint64.to_int !count) (sub_pointer !p_4 s_0)))
+            /\
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 43#
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 43#
+             ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 20 30#
+              ((<=) (0) (Uint64.to_int !count)))
+             /\
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 10 25 43#
+             (Uint64.(<=) !count (strlen s_0 charP_charM_s_0_5))))))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 22#
+             (same_block s_0 !p_4))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 22#
+             ((<=) (sub_pointer s_0 !p_4) (0)))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 16 39#
+            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 21 39#
+             (same_block !p_4
+             (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 9 21 39#
+            ((<=)
+            (sub_pointer !p_4
+            (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5)))) (0)))))))))))))
+            } ;
+           try
+            begin
+            begin
+            (if
+            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 23#
+            (Unsafe_int32.(<>) 
+             (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 17 13 15#
+             "expl:Integer cast"
+             (Unsafe_int32_of_Unsafe_int8.cast 
+              (acc  charP_charM_s_0_5 !p_4 ) ))
+             (#"strcspn.jc" 341 27 39# "expl:Integer cast"
+             (Unsafe_int32.of_int (0))) )) then ()
+            else (raise (Goto_while_0_break_exc ())));
+             try
+              begin
+              (r := reject);
+               'Loop_6:
+               loop
+               invariant { (#"strcspn.jc" 346 15 2170# true) } 
+                begin
+                any unit
+                requires { true } reads { reject }
+                ensures {
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 19 21 66#
+                   (forall c : (pointer voidP).
+                    (((same_block reject c) /\
+                     (((<=) (sub_pointer reject c) (0)) /\
+                     ((same_block c !r) /\ ((<) (sub_pointer c !r) (0))))) ->
+                     (Int8.(<>) (select charP_charM_reject_6 c)
+                     (select charP_charM_s_0_5 !p_4)))))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 27#
+                   (same_block reject !r))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 27#
+                   ((<=) (sub_pointer reject !r) (0)))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 16 54#
+                  ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 54#
+                   (same_block !r
+                   (shift reject
+                   (Uint64.to_int (strlen reject charP_charM_reject_6)))))
+                  /\
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 18 26 54#
+                  ((<=)
+                  (sub_pointer !r
+                  (shift reject
+                  (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))))
+                  } ;
+                 try
+                  begin
+                  begin
+                  (if
+                  (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 29#
+                  (Unsafe_int32.(<>) 
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 22 19 21#
+                   "expl:Integer cast"
+                   (Unsafe_int32_of_Unsafe_int8.cast 
+                    (acc  charP_charM_reject_6 !r ) ))
+                   (#"strcspn.jc" 372 36 48# "expl:Integer cast"
+                   (Unsafe_int32.of_int (0))) )) then ()
+                  else (raise (Goto_while_1_break_exc ())));
+                   (if
+                   (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 15#
+                   (Unsafe_int32.(=) 
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 7 9#
+                    "expl:Integer cast"
+                    (Unsafe_int32_of_Unsafe_int8.cast 
+                     (acc  charP_charM_s_0_5 !p_4 ) ))
+                    (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 23 13 15#
+                    "expl:Integer cast"
+                    (Unsafe_int32_of_Unsafe_int8.cast 
+                     (acc  charP_charM_reject_6 !r ) )) ))
+                   then
+                    begin (__retres := !count); (raise (Return_label_exc ()))
+                    end else ());
+                   (r :=
+                    (shift_  !r
+                     (Unsafe_int32.to_int 
+                      (#"strcspn.jc" 382 49 61# "expl:Integer cast"
+                      (Unsafe_int32.of_int (1))) ) )) end;
+                   (raise (Loop_continue_exc ())) end with Loop_continue_exc
+                  _jessie_5 -> () end end end;
+               (raise (Goto_while_1_break_exc ())) end with
+              Goto_while_1_break_exc _jessie_1 ->
+              'While_1_break:
+              'While_1_break:
+              begin
+              ();
+               (count :=
+                (Unsafe_uint64.(+)  !count
+                 (#"strcspn.jc" 386 61 74# "expl:Integer cast"
+                 (Unsafe_uint64.of_int (1))) )) end end;
+             (p_4 :=
+              (shift_  !p_4
+               (Unsafe_int32.to_int 
+                (#"strcspn.jc" 388 40 52# "expl:Integer cast"
+                (Unsafe_int32.of_int (1))) ) )) end;
+             (raise (Loop_continue_exc ())) end with Loop_continue_exc
+            _jessie_7 -> () end end end; (raise (Goto_while_0_break_exc ()))
+        end end with Goto_while_0_break_exc _jessie_2 ->
+       'While_0_break: 'While_0_break: begin (); (__retres := !count) end end;
+       (raise (Return_label_exc ())) end with Return_label_exc _jessie_3 ->
+      'Return_label:
+      'Return_label: begin (return := !__retres); (raise Return) end end))));
      absurd  end with Return -> !return end)
   
 end
@@ -8384,13 +8692,11 @@ module Unsafe_int32_of_Unsafe_int16
   
 end
 
-module Function_strcspn_0
+module Function_strlen_0
 
   use enum.Uint64 
   
   use import core.Jessie_voidp 
-  
-  use import core.Jessie_tag_table_type 
   
   use import core.Jessie_pointer 
   
@@ -8404,63 +8710,95 @@ module Function_strcspn_0
   
   use import Axiomatic_Strlen 
   
-  use import Axiomatic_Strcspn 
-  
   use why3.Bool.Bool 
   
-  val strcspn_0
-  (s_0 : (pointer voidP)) 
-   (reject_0 : (pointer voidP)) 
-    (voidP_reject_8_alloc_table : (alloc_table voidP)) 
-     (voidP_s_7_alloc_table : (alloc_table voidP)) 
-      (voidP_reject_8_tag_table : (tag_table voidP)) 
-       (voidP_s_7_tag_table : (tag_table voidP)) 
-        (charP_charM_reject_8 : (memory voidP Int8.t)) 
-         (charP_charM_s_7 : (memory voidP Int8.t)) : Uint64.t
-          requires { true }
-          ensures {
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
-            "expl:Ensures clause"
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
-            "expl:Ensures clause"
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 22#
-             "expl:Ensures clause" ((<=) (0) (Uint64.to_int result)))
-            /\
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
-            "expl:Ensures clause"
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 15 35#
-             "expl:Ensures clause"
-             (Uint64.(<=) result (strlen s_0 charP_charM_s_7)))
-            /\
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
-            "expl:Ensures clause"
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 7 11 111#
-             "expl:Ensures clause"
-             (forall t_1 : (pointer voidP).
-              (forall i_6 : int.
-               ((((<=) (0) i_6) /\
-                (((<) i_6 (Uint64.to_int result)) /\
-                ((same_block reject_0 t_1) /\
-                (((<=) (sub_pointer reject_0 t_1) (0)) /\
-                ((same_block t_1
-                 (shift reject_0
-                 (Uint64.to_int (strlen reject_0 charP_charM_reject_8))))
-                /\
-                ((<)
-                (sub_pointer t_1
-                (shift reject_0
-                (Uint64.to_int (strlen reject_0 charP_charM_reject_8)))) (0)))))))
-                ->
-                (Int8.(<>) (select charP_charM_s_7 (shift s_0 i_6))
-                (select charP_charM_reject_8 t_1))))))
-            /\
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 8 11 40#
-            "expl:Ensures clause" (Uint64.(=) result (strcspn s_0 reject_0))))))))))
-            }
+  val strlen_0
+  (s_1_0 : (pointer voidP)) 
+   (voidP_s_1_4_alloc_table : (alloc_table voidP)) 
+    (charP_charM_s_1_4 : (memory voidP Int8.t)) : Uint64.t
+     requires { true }
+     ensures {
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 70 12 32#
+       "expl:Ensures clause"
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 70 12 32#
+       "expl:Ensures clause"
+       ((#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 70 12 32#
+        "expl:Ensures clause"
+        (Uint64.(=) result (strlen s_1_0 charP_charM_s_1_4)))
+       /\
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 70 12 32#
+       "expl:Ensures clause"
+       ((#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 71 12 30#
+        "expl:Ensures clause"
+        ((=)
+        (Int8.to_int
+        (select charP_charM_s_1_4 (shift s_1_0 (Uint64.to_int result)))) (0)))
+       /\
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 72 12 64#
+       "expl:Ensures clause"
+       (forall i_6 : int.
+        ((((<=) (0) i_6) /\ ((<) i_6 (Uint64.to_int result))) ->
+         ((<>) (Int8.to_int (select charP_charM_s_1_4 (shift s_1_0 i_6)))
+         (0)))))))))) }
   
 end
 
-module Function_strcspn_0_safe
+module Function_strlen_0_safe
+
+  use enum.Uint64 
+  
+  use import core.Jessie_voidp 
+  
+  use import core.Jessie_pointer 
+  
+  use import core.Jessie_memory 
+  
+  use import core.Jessie_alloc_table 
+  
+  use enum.Int8 
+  
+  use import int.Int 
+  
+  use import Axiomatic_Strlen 
+  
+  use why3.Bool.Bool 
+  
+  val strlen_0
+  (s_1_0 : (pointer voidP)) 
+   (voidP_s_1_4_alloc_table : (alloc_table voidP)) 
+    (charP_charM_s_1_4 : (memory voidP Int8.t)) : Uint64.t
+     requires {
+       ("expl:External"
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 68 10 22#
+       "expl:Requires clause"
+       (valid_str s_1_0 voidP_s_1_4_alloc_table charP_charM_s_1_4))) }
+     ensures {
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 70 12 32#
+       "expl:Ensures clause"
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 70 12 32#
+       "expl:Ensures clause"
+       ((#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 70 12 32#
+        "expl:Ensures clause"
+        (Uint64.(=) result (strlen s_1_0 charP_charM_s_1_4)))
+       /\
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 70 12 32#
+       "expl:Ensures clause"
+       ((#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 71 12 30#
+        "expl:Ensures clause"
+        ((=)
+        (Int8.to_int
+        (select charP_charM_s_1_4 (shift s_1_0 (Uint64.to_int result)))) (0)))
+       /\
+       (#"/Users/macbook/Documents/HSE/verker-master/./strlen.h" 72 12 64#
+       "expl:Ensures clause"
+       (forall i_6 : int.
+        ((((<=) (0) i_6) /\ ((<) i_6 (Uint64.to_int result))) ->
+         ((<>) (Int8.to_int (select charP_charM_s_1_4 (shift s_1_0 i_6)))
+         (0)))))))))) }
+  
+end
+
+module Function_strcspn
 
   use enum.Uint64 
   
@@ -8480,68 +8818,280 @@ module Function_strcspn_0_safe
   
   use import Axiomatic_Strlen 
   
-  use import Axiomatic_Strcspn 
+  use why3.Bool.Bool 
+  
+  val strcspn
+  (s_0 : (pointer voidP)) 
+   (reject : (pointer voidP)) 
+    (voidP_reject_6_alloc_table : (alloc_table voidP)) 
+     (voidP_s_0_5_alloc_table : (alloc_table voidP)) 
+      (voidP_reject_6_tag_table : (tag_table voidP)) 
+       (voidP_s_0_5_tag_table : (tag_table voidP)) 
+        (charP_charM_reject_6 : (memory voidP Int8.t)) 
+         (charP_charM_s_0_5 : (memory voidP Int8.t)) : Uint64.t
+          requires { true }
+          ensures {
+            (((forall p : (pointer voidP).
+               (forall t_0 : (pointer voidP).
+                (((same_block s_0 p) /\
+                 (((<=) (sub_pointer s_0 p) (0)) /\
+                 ((same_block p
+                  (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+                 /\
+                 (((<)
+                  (sub_pointer p
+                  (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+                  (0))
+                 /\
+                 ((same_block reject t_0) /\
+                 (((<=) (sub_pointer reject t_0) (0)) /\
+                 ((same_block t_0
+                  (shift reject
+                  (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                 /\
+                 ((<)
+                 (sub_pointer t_0
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))
+                 ->
+                 (Int8.(<>) (select charP_charM_s_0_5 p)
+                 (select charP_charM_reject_6 t_0))))) ->
+              (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 32 15 35#
+              "expl:Ensures clause"
+              (Uint64.(=) result (strlen s_0 charP_charM_s_0_5))))
+            /\
+            (((exists p_0 : (pointer voidP).
+               (exists t_1 : (pointer voidP).
+                ((same_block s_0 p_0) /\
+                (((<=) (sub_pointer s_0 p_0) (0)) /\
+                ((same_block p_0
+                 (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+                /\
+                (((<)
+                 (sub_pointer p_0
+                 (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+                 (0))
+                /\
+                ((same_block reject t_1) /\
+                (((<=) (sub_pointer reject t_1) (0)) /\
+                ((same_block t_1
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                /\
+                (((<)
+                 (sub_pointer t_1
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0))
+                /\
+                (Int8.(=) (select charP_charM_s_0_5 p_0)
+                (select charP_charM_reject_6 t_1)))))))))))) ->
+              (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 26 15 89#
+              "expl:Ensures clause"
+              (exists t_2 : (pointer voidP).
+               ((same_block reject t_2) /\
+               (((<=) (sub_pointer reject t_2) (0)) /\
+               ((same_block t_2
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6))))
+               /\
+               (((<)
+                (sub_pointer t_2
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0))
+               /\
+               (Int8.(=)
+               (select charP_charM_s_0_5 (shift s_0 (Uint64.to_int result)))
+               (select charP_charM_reject_6 t_2)))))))))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
+            "expl:Ensures clause"
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
+            "expl:Ensures clause"
+            ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 24#
+             "expl:Ensures clause" ((<=) (0) (Uint64.to_int result)))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
+            "expl:Ensures clause"
+            ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 17 37#
+             "expl:Ensures clause"
+             (Uint64.(<=) result (strlen s_0 charP_charM_s_0_5)))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 17 12 143#
+            "expl:Ensures clause"
+            (forall p_1 : (pointer voidP).
+             (forall t_3 : (pointer voidP).
+              (((same_block s_0 p_1) /\
+               (((<=) (sub_pointer s_0 p_1) (0)) /\
+               ((same_block p_1 (shift s_0 (Uint64.to_int result))) /\
+               (((<) (sub_pointer p_1 (shift s_0 (Uint64.to_int result)))
+                (0))
+               /\
+               ((same_block reject t_3) /\
+               (((<=) (sub_pointer reject t_3) (0)) /\
+               ((same_block t_3
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6))))
+               /\
+               ((<)
+               (sub_pointer t_3
+               (shift reject
+               (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))
+               ->
+               (Int8.(<>) (select charP_charM_s_0_5 p_1)
+               (select charP_charM_reject_6 t_3))))))))))))) }
+  
+end
+
+module Function_strcspn_safe
+
+  use enum.Uint64 
+  
+  use import core.Jessie_voidp 
+  
+  use import core.Jessie_tag_table_type 
+  
+  use import core.Jessie_pointer 
+  
+  use import core.Jessie_memory 
+  
+  use import core.Jessie_alloc_table 
+  
+  use enum.Int8 
+  
+  use import int.Int 
+  
+  use import Axiomatic_Strlen 
   
   use why3.Bool.Bool 
   
-  val strcspn_0
+  val strcspn
   (s_0 : (pointer voidP)) 
-   (reject_0 : (pointer voidP)) 
-    (voidP_reject_8_alloc_table : (alloc_table voidP)) 
-     (voidP_s_7_alloc_table : (alloc_table voidP)) 
-      (voidP_reject_8_tag_table : (tag_table voidP)) 
-       (voidP_s_7_tag_table : (tag_table voidP)) 
-        (charP_charM_reject_8 : (memory voidP Int8.t)) 
-         (charP_charM_s_7 : (memory voidP Int8.t)) : Uint64.t
+   (reject : (pointer voidP)) 
+    (voidP_reject_6_alloc_table : (alloc_table voidP)) 
+     (voidP_s_0_5_alloc_table : (alloc_table voidP)) 
+      (voidP_reject_6_tag_table : (tag_table voidP)) 
+       (voidP_s_0_5_tag_table : (tag_table voidP)) 
+        (charP_charM_reject_6 : (memory voidP Int8.t)) 
+         (charP_charM_s_0_5 : (memory voidP Int8.t)) : Uint64.t
           requires {
             ("expl:Internal"
-            (#"strcspn.jc" 211 12 90# "expl:Requires clause"
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 3 10 22#
+            (#"strcspn.jc" 120 12 92# "expl:Requires clause"
+            ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 13 10 22#
              "expl:Requires clause"
-             (valid_str s_0 voidP_s_7_alloc_table charP_charM_s_7))
+             (valid_str s_0 voidP_s_0_5_alloc_table charP_charM_s_0_5))
             /\
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 4 11 28#
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 14 13 30#
             "expl:Requires clause"
-            (valid_str reject_0 voidP_reject_8_alloc_table
-            charP_charM_reject_8))))) }
+            (valid_str reject voidP_reject_6_alloc_table
+            charP_charM_reject_6))))) }
           ensures {
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
+            (((forall p : (pointer voidP).
+               (forall t_0 : (pointer voidP).
+                (((same_block s_0 p) /\
+                 (((<=) (sub_pointer s_0 p) (0)) /\
+                 ((same_block p
+                  (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+                 /\
+                 (((<)
+                  (sub_pointer p
+                  (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+                  (0))
+                 /\
+                 ((same_block reject t_0) /\
+                 (((<=) (sub_pointer reject t_0) (0)) /\
+                 ((same_block t_0
+                  (shift reject
+                  (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                 /\
+                 ((<)
+                 (sub_pointer t_0
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))
+                 ->
+                 (Int8.(<>) (select charP_charM_s_0_5 p)
+                 (select charP_charM_reject_6 t_0))))) ->
+              (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 32 15 35#
+              "expl:Ensures clause"
+              (Uint64.(=) result (strlen s_0 charP_charM_s_0_5))))
+            /\
+            (((exists p_0 : (pointer voidP).
+               (exists t_1 : (pointer voidP).
+                ((same_block s_0 p_0) /\
+                (((<=) (sub_pointer s_0 p_0) (0)) /\
+                ((same_block p_0
+                 (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+                /\
+                (((<)
+                 (sub_pointer p_0
+                 (shift s_0 (Uint64.to_int (strlen s_0 charP_charM_s_0_5))))
+                 (0))
+                /\
+                ((same_block reject t_1) /\
+                (((<=) (sub_pointer reject t_1) (0)) /\
+                ((same_block t_1
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6))))
+                /\
+                (((<)
+                 (sub_pointer t_1
+                 (shift reject
+                 (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0))
+                /\
+                (Int8.(=) (select charP_charM_s_0_5 p_0)
+                (select charP_charM_reject_6 t_1)))))))))))) ->
+              (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 26 15 89#
+              "expl:Ensures clause"
+              (exists t_2 : (pointer voidP).
+               ((same_block reject t_2) /\
+               (((<=) (sub_pointer reject t_2) (0)) /\
+               ((same_block t_2
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6))))
+               /\
+               (((<)
+                (sub_pointer t_2
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0))
+               /\
+               (Int8.(=)
+               (select charP_charM_s_0_5 (shift s_0 (Uint64.to_int result)))
+               (select charP_charM_reject_6 t_2)))))))))
+            /\
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
             "expl:Ensures clause"
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
             "expl:Ensures clause"
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 22#
+            ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 24#
              "expl:Ensures clause" ((<=) (0) (Uint64.to_int result)))
             /\
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 12 37#
             "expl:Ensures clause"
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 15 35#
+            ((#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 16 17 37#
              "expl:Ensures clause"
-             (Uint64.(<=) result (strlen s_0 charP_charM_s_7)))
+             (Uint64.(<=) result (strlen s_0 charP_charM_s_0_5)))
             /\
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 6 10 35#
+            (#"/Users/macbook/Documents/HSE/verker-master/./strcspn.h" 17 12 143#
             "expl:Ensures clause"
-            ((#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 7 11 111#
-             "expl:Ensures clause"
-             (forall t_1 : (pointer voidP).
-              (forall i_6 : int.
-               ((((<=) (0) i_6) /\
-                (((<) i_6 (Uint64.to_int result)) /\
-                ((same_block reject_0 t_1) /\
-                (((<=) (sub_pointer reject_0 t_1) (0)) /\
-                ((same_block t_1
-                 (shift reject_0
-                 (Uint64.to_int (strlen reject_0 charP_charM_reject_8))))
-                /\
-                ((<)
-                (sub_pointer t_1
-                (shift reject_0
-                (Uint64.to_int (strlen reject_0 charP_charM_reject_8)))) (0)))))))
-                ->
-                (Int8.(<>) (select charP_charM_s_7 (shift s_0 i_6))
-                (select charP_charM_reject_8 t_1))))))
-            /\
-            (#"/Users/macbook/Documents/HSE/verker-master/strcspn.c" 8 11 40#
-            "expl:Ensures clause" (Uint64.(=) result (strcspn s_0 reject_0))))))))))
-            }
+            (forall p_1 : (pointer voidP).
+             (forall t_3 : (pointer voidP).
+              (((same_block s_0 p_1) /\
+               (((<=) (sub_pointer s_0 p_1) (0)) /\
+               ((same_block p_1 (shift s_0 (Uint64.to_int result))) /\
+               (((<) (sub_pointer p_1 (shift s_0 (Uint64.to_int result)))
+                (0))
+               /\
+               ((same_block reject t_3) /\
+               (((<=) (sub_pointer reject t_3) (0)) /\
+               ((same_block t_3
+                (shift reject
+                (Uint64.to_int (strlen reject charP_charM_reject_6))))
+               /\
+               ((<)
+               (sub_pointer t_3
+               (shift reject
+               (Uint64.to_int (strlen reject charP_charM_reject_6)))) (0)))))))))
+               ->
+               (Int8.(<>) (select charP_charM_s_0_5 p_1)
+               (select charP_charM_reject_6 t_3))))))))))))) }
   
 end

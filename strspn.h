@@ -1,9 +1,3 @@
-#pragma once
-
-typedef unsigned long __kernel_ulong_t;
-typedef __kernel_ulong_t __kernel_size_t;
-typedef __kernel_size_t size_t;
-
 /*@ axiomatic Strlen {
     predicate valid_str(char *s) =
        \exists size_t n;
@@ -58,6 +52,9 @@ typedef __kernel_size_t size_t;
        s[n] == '\0' &&
        (\forall size_t i; i < n ==> s[i] != '\0') ==>
            strlen(s) == n;
+    }
+ */
+/*@ axiomatic StrSpn {
 
     logic boolean in_array(char *s, char val) = *s == '\0' ? \false : (*s == val ? \true : in_array(s + 1, val));
 
@@ -82,20 +79,20 @@ logic size_t strspn(char*s, char*accept);
           strspn(s, accept) == (size_t)1 + strspn(s+1, accept);
 
     lemma strspn_s_null:
-       \forall char* s,*accept;
+       \forall char *s, *accept;
         *s == '\0' ==> strspn(s, accept) == (size_t)0;
 
         lemma strspn_accept_null:
-           \forall char* s,*accept;
+           \forall char *s, *accept;
             *accept == '\0' ==> strspn(s, accept) == (size_t)0;
 
         lemma strspn_shift2:
-           \forall char *s,*accept;
+           \forall char *s, *accept;
               valid_str(s) && valid_str(accept) && *s != '\0' && !in_array(accept,*s) ==>
               strspn(s, accept) == strspn(s + 1, accept);
 
         lemma strspn_shift3:
-                 \forall char *s,*accept;
+                 \forall char *s, *accept;
                     valid_str(s) && valid_str(accept) && *s == '\0' && in_array(accept,*s) ==>
                     strspn(s, accept) == (size_t)0;
 
@@ -111,16 +108,24 @@ logic size_t strspn(char*s, char*accept);
                           					s <= sc < s + strlen(s)
                           					==> strspn(sc, accept) <= strspn(s, accept);
 
-        lemma strspn_all_chars:
-                              \forall char *s, *accept, *sc;
-                              valid_str(s) && valid_str(accept) && *s != '\0' && s <= sc < s + strlen(s)
-                              && (\forall char *t; accept <= t < accept + strlen(accept) ==> *sc == *t)
-                              ==> strspn(s, accept) == strlen(s);
-
          lemma strspn_less:
                            				\forall char* s, *accept;
                            					valid_str(s) && valid_str(accept) && *s != '\0'
                            					==> strspn(s, accept) <= strlen(s);
+        lemma strspn_exists:
+        \forall char *p, *t, *s, *accept ; s <= p < s + strlen(s) &&  accept <= t < accept + strlen(accept) && *p == *t
+                ==> \exists char *t; accept <= t < accept + strlen(accept) && s[strspn(s,accept)] == *t;
+        lemma strspn_not:
+        \forall char *p, *t, *s, *accept; s <= p < s + strlen(s) &&
+                accept <= t < accept + strlen(accept) ==> *p != *t
+                ==> strspn(s,accept) == strlen(s);
 }
+ */
+ /*@ requires valid_str(s) && valid_str(accept);
+     assigns \nothing;
+     ensures 0 <= \result <= strlen(s);
+     ensures \forall char *z; s <= z < s + strlen(s) ==>
+                 \exists char *t; accept <= t < accept + strlen(accept) && *z == *t;
+     ensures \result == strspn(s, accept);
  */
 size_t strspn(const char *s, const char *accept);

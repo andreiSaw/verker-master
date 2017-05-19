@@ -6,6 +6,7 @@ Typing code
 Typing axiomatic Padding
 Typing logic type declaration padding
 Typing axiomatic Strlen
+Typing axiomatic StrSpn
 Typing axiomatic Padding
 Typing tag voidP
 Typing tag charP
@@ -19,6 +20,7 @@ Typing lemma/axiom strlen_shift_ex
 Typing lemma/axiom strlen_shift1
 Typing lemma/axiom strlen_pointers
 Typing lemma/axiom strlen_main
+Typing axiomatic StrSpn
 Typing lemma/axiom in_array_shift1
 Typing lemma/axiom in_array_at_null
 Typing lemma/axiom in_array_shift2
@@ -29,8 +31,9 @@ Typing lemma/axiom strspn_shift2
 Typing lemma/axiom strspn_shift3
 Typing lemma/axiom strspn_range
 Typing lemma/axiom strspn_pointers
-Typing lemma/axiom strspn_all_chars
 Typing lemma/axiom strspn_less
+Typing lemma/axiom strspn_exists
+Typing lemma/axiom strspn_not
 Computation of call graph
 ***********************************
 Logic call graph: has 4 components
@@ -45,16 +48,14 @@ Component 2:
  in_array calls: in_array
 
 Component 3:
- strspn calls: valid_str, valid_str, strlen, valid_str, strlen,
-valid_str, strlen, strlen, strlen, valid_str, strlen, strlen, strlen,
-valid_str, strlen, strlen, valid_str, strlen, strlen, valid_str, valid_str,
-strlen, valid_str, in_array, in_array, valid_str, in_array, in_array,
-valid_str, strspn, strspn, in_array, valid_str, valid_str, strspn, strspn,
-strspn, strspn, in_array, valid_str, valid_str, strspn, in_array, valid_str,
-valid_str, strspn, strspn, strspn, valid_str, valid_str, strspn, strspn,
-strlen, strlen, valid_str, valid_str, strlen, strspn, strlen, strlen, strlen,
-strlen, valid_str, valid_str, strlen, strspn, valid_str,
-valid_str
+ strspn calls: in_array, in_array, valid_str, in_array,
+in_array, valid_str, strspn, strspn, in_array, valid_str, valid_str, strspn,
+strspn, strspn, strspn, in_array, valid_str, valid_str, strspn, in_array,
+valid_str, valid_str, strspn, strspn, strspn, valid_str, valid_str, strspn,
+strspn, strlen, strlen, valid_str, valid_str, strlen, strspn, valid_str,
+valid_str, strspn, strlen, strlen, strlen, strlen, strlen, strlen, strlen,
+strspn, strlen, strlen, strlen,
+strlen
 
 ******************************
 Call graph: has 1 components
@@ -739,6 +740,7 @@ Logic function in_array
 Logic function strspn
 Translate axiomatic declarations
 Axiomatic Padding
+Axiomatic StrSpn
 Axiomatic Strlen
 Translate lemmas
 Translate functions

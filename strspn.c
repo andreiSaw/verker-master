@@ -1,10 +1,5 @@
 #include "strspn.h"
-/*@ requires valid_str(s) && valid_str(accept);
-    assigns \nothing;
-    ensures 0 <= \result <= strlen(s);
-    ensures \forall char *z; s <= z < s + strlen(s) ==>
-                \exists char *t; accept <= t < accept + strlen(accept) && *z == *t;
-*/
+
 size_t strspn(const char*s, const char*accept)
 {
     const char*p;

@@ -6,7 +6,6 @@ Typing code
 Typing axiomatic Padding
 Typing logic type declaration padding
 Typing axiomatic Strlen
-Typing axiomatic Strcspn
 Typing axiomatic Padding
 Typing tag voidP
 Typing tag charP
@@ -20,20 +19,9 @@ Typing lemma/axiom strlen_shift_ex
 Typing lemma/axiom strlen_shift1
 Typing lemma/axiom strlen_pointers
 Typing lemma/axiom strlen_main
-Typing lemma/axiom in_array_shift1
-Typing lemma/axiom in_array_at_null
-Typing lemma/axiom in_array_shift2
-Typing axiomatic Strcspn
-Typing lemma/axiom strcspn_shift
-Typing lemma/axiom strcspn_pointers
-Typing lemma/axiom strcspn_all_chars
-Typing lemma/axiom strcspn_zero_s
-Typing lemma/axiom strcspn_zero_reject
-Typing lemma/axiom strspn_at_null
-Typing lemma/axiom strcspn_less
 Computation of call graph
 ***********************************
-Logic call graph: has 4 components
+Logic call graph: has 2 components
 ***********************************
 Component 0:
  valid_str calls: 
@@ -41,25 +29,19 @@ Component 0:
 Component 1:
  strlen calls: strlen
 
-Component 2:
- in_array calls: in_array
-
-Component 3:
- strcspn calls: strcspn, strcspn, in_array, valid_str,
-valid_str, strcspn, strcspn, strlen, strlen, valid_str, valid_str, strlen,
-strcspn, strlen, strlen, strlen, strlen, valid_str, valid_str, strcspn,
-strlen, valid_str, valid_str, strlen, strcspn, strlen, valid_str, valid_str,
-strcspn, strlen, strcspn, valid_str,
-valid_str
-
 ******************************
-Call graph: has 1 components
+Call graph: has 2 components
 ******************************
 Component 0:
+ strlen calls: 
+
+Component 1:
  strcspn calls: 
 
 Adding invariants
 Computation of regions
+Separation: treating function strlen
+Separation: treating function strlen
 Separation: treating function strcspn
 Separation: treating function strcspn
 Computation of effects
@@ -87,47 +69,47 @@ Effects for logic function strlen:
  globals: 
  locals: s_1 at (Here)
 
-Effects: doing one iteration
-Effects: doing one iteration
+Effects: doing one iteration...
+Effects: doing one iteration...
+Effects: doing one iteration...
+Effects: doing one iteration...
 Effects: fixpoint reached
-Effects for logic function in_array:
- alloc_table: 
- tag_table: 
- memories: (s_9_4 : mem-field "charM") at (L)
- raw memories: 
- precise memories: 
- globals: 
- locals: val at (Here), s_9 at (Here)
+Effects for function strlen:
+ reads:  alloc_table: (s_1_4 : alloc-root "voidP") at (Here)
+         tag_table: 
+         memories: (s_1_4 : mem-field "charM") at (Here)
+         raw memories: (s_1_4 : mem-field "charM") at (Here)
+         precise memories: 
+         globals: 
+         locals: \result at (Here), s_1 at (Here)
 
-Effects: doing one iteration
-Effects: fixpoint reached
-Effects for logic function strcspn:
- alloc_table: 
- tag_table: 
- memories: 
- raw memories: 
- precise memories: 
- globals: 
- locals: 
+ writes:  alloc_table: 
+          tag_table: 
+          memories: 
+          raw memories: 
+          precise memories: 
+          globals: 
+          locals: 
 
+ raises: 
 Effects: doing one iteration...
 Effects: doing one iteration...
 Effects: doing one iteration...
 Effects: doing one iteration...
 Effects: fixpoint reached
 Effects for function strcspn:
- reads:  alloc_table: (reject_8 : alloc-root "voidP") at (Here),
-                      (s_7 : alloc-root "voidP") at (Here)
-         tag_table: (reject_8 : voidP) at (Here), (s_7 : voidP) at (Here)
-         memories: (reject_8 : mem-field "charM") at (Here),
-                   (s_7 : mem-field "charM") at (Here)
-         raw memories: (reject_8 : mem-field "charM") at (Here),
-                       (s_7 : mem-field "charM") at (Here)
+ reads:  alloc_table: (reject_6 : alloc-root "voidP") at (Here),
+                      (s_0_5 : alloc-root "voidP") at (Here)
+         tag_table: (reject_6 : voidP) at (Here), (s_0_5 : voidP) at (Here)
+         memories: (reject_6 : mem-field "charM") at (Here),
+                   (s_0_5 : mem-field "charM") at (Here)
+         raw memories: (reject_6 : mem-field "charM") at (Here),
+                       (s_0_5 : mem-field "charM") at (Here)
          precise memories: 
          globals: 
          locals: __retres at (Here), count at (Here), r at (Here),
                  p at (Here), \result at (Here), reject at (Here),
-                 s at (Here)
+                 s_0 at (Here)
 
  writes:  alloc_table: 
           tag_table: 
@@ -731,14 +713,13 @@ Translate dummies
 Translate standalone logic functions
 Logic function valid_str
 Logic function strlen
-Logic function in_array
-Logic function strcspn
 Translate axiomatic declarations
 Axiomatic Padding
-Axiomatic Strcspn
 Axiomatic Strlen
 Translate lemmas
 Translate functions
+Pre-treatement Function strlen
 Pre-treatement Function strcspn
+Function strlen
 Function strcspn
 Produce makefile
