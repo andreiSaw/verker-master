@@ -56,19 +56,20 @@
  */
 /*@ axiomatic StrSpn {
 
-    logic boolean in_array(char *s, char val) = *s == '\0' ? \false : (*s == val ? \true : in_array(s + 1, val));
+    //logic boolean in_array(char *s, char val) = *s == '\0' ? \false : (*s == val ? \true : in_array(s + 1, val));
+    predicate in_array(char *s, char val) = \exists char *t; s <= t < s + strlen(s) && *t == val;
 
-    lemma in_array_shift1:
-      \forall char* s, val; valid_str(s) && *s != '\0' && *s != val && val != '\0' ==>
-      in_array(s, val) == in_array(s+1, val);
+    //lemma in_array_shift1:
+    //  \forall char* s, val; valid_str(s) && *s != '\0' && *s != val && val != '\0' ==>
+    //  in_array(s, val) == in_array(s+1, val);
 
-    lemma in_array_at_null:
-         \forall char* s, val;
-          *s == '\0' && val != '\0' ==> in_array(s, val) == \false;
+    //lemma in_array_at_null:
+    //     \forall char* s, val;
+    //      *s == '\0' && val != '\0' ==> in_array(s, val) == \false;
 
-    lemma in_array_shift2:
-        \forall char* s, val; valid_str(s) && *s != '\0' && *s == val && val != '\0' ==>
-            in_array(s, val) == \true;
+    //lemma in_array_shift2:
+    //    \forall char* s, val; valid_str(s) && *s != '\0' && *s == val && val != '\0' ==>
+    //        in_array(s, val) == \true;
 
 logic size_t strspn(char*s, char*accept);
 //= *s == '\0' ? (size_t)0 : (in_array(accept, *s) ? (size_t)1 + strspn(s + 1, accept) : strspn(s + 1, accept);
@@ -95,11 +96,6 @@ logic size_t strspn(char*s, char*accept);
                  \forall char *s, *accept;
                     valid_str(s) && valid_str(accept) && *s == '\0' && in_array(accept,*s) ==>
                     strspn(s, accept) == (size_t)0;
-
-        lemma strspn_range:
-                       \forall char *s, *accept, size_t cnt;
-                          valid_str(s) && valid_str(accept) && strspn (s,accept) == cnt ==>
-                             0 <= strspn(s,accept) <= cnt;
 
         lemma strspn_pointers:
                           			 \forall char *s, *sc, *accept;
